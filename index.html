@@ -1,0 +1,2289 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Newstrides - The Ultimate Global Education Roadmap</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Space+Mono:wght@700&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#005bbf",
+                        "primary-container": "#1a73e8",
+                        "secondary": "#3a5ca5",
+                        "secondary-container": "#8faffe",
+                        "tertiary": "#006d2d",
+                        "tertiary-container": "#00893b",
+                        "error": "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "background": "#f9f9ff",
+                        "surface": "#f9f9ff",
+                        "on-primary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-background": "#191c23",
+                        "on-surface": "#191c23",
+                        "on-surface-variant": "#414754",
+                        "outline": "#727785",
+                        "outline-variant": "#c1c6d6",
+                        "accent-green": "#16a34a",
+                        "success": "#16a34a",
+                        "surface-container-highest": "#e0e2ec",
+                        "surface-container-high": "#e6e8f2",
+                        "surface-container": "#ecedf7",
+                        "surface-container-low": "#f2f3fd",
+                        "surface-container-lowest": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "12px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xxl": "80px",
+                        "xl": "48px",
+                        "lg": "24px",
+                        "md": "16px",
+                        "sm": "8px",
+                        "xs": "4px",
+                        "gutter": "24px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "display": ["Inter"],
+                        "h1": ["Inter"],
+                        "h2": ["Inter"],
+                        "h3": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "caption": ["Inter"],
+                        "mono": ["Space Mono", "monospace"]
+                    },
+                    "fontSize": {
+                        "display": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "h1": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "h2": ["32px", { "lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "h3": ["24px", { "lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "caption": ["12px", { "lineHeight": "1.4", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    /* 1. Global & Shared */
+    body { overflow-x: hidden; scroll-behavior: smooth; }
+    .grid-pattern {
+        background-size: 40px 40px;
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+                          linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+    }
+    .bg-grid {
+        background-image: linear-gradient(rgba(26, 115, 232, 0.05) 1px, transparent 1px),
+                          linear-gradient(90deg, rgba(26, 115, 232, 0.05) 1px, transparent 1px);
+        background-size: 40px 40px;
+    }
+    .dot-grid {
+        background-image: radial-gradient(rgba(114, 119, 133, 0.1) 1px, transparent 1px);
+        background-size: 20px 20px;
+    }
+
+    /* 2. Toasts */
+    .toast-container > div {
+        position: absolute; bottom: 0; left: 0; opacity: 0;
+        animation: toast-fade 12s infinite;
+    }
+    .toast-1 { animation-delay: 0s !important; }
+    .toast-2 { animation-delay: 4s !important; }
+    .toast-3 { animation-delay: 8s !important; }
+    @keyframes toast-fade {
+        0%, 2% { opacity: 0; transform: translateY(10px); }
+        5%, 30% { opacity: 1; transform: translateY(0); }
+        33%, 100% { opacity: 0; transform: translateY(-10px); }
+    }
+    .success-pulse { animation: pulse-green 2s infinite; }
+    @keyframes pulse-green {
+        0% { box-shadow: 0 0 0 0 rgba(0, 109, 45, 0.4); }
+        70% { box-shadow: 0 0 0 10px rgba(0, 109, 45, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(0, 109, 45, 0); }
+    }
+
+    /* 3. Marquee */
+    @keyframes scroll-right {
+        0% { transform: translateX(-50%); }
+        100% { transform: translateX(0); }
+    }
+    .animate-scroll-right { animation: scroll-right 40s linear infinite; }
+    .marquee-container { mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); }
+
+    /* 4. Technical Blueprint & Light Leaks */
+    .light-leak-container { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+    .light-leak { position: absolute; border-radius: 50%; filter: blur(150px); opacity: 0.6; animation: pulse-slow 10s infinite alternate; }
+    .light-leak-1 { width: 60vw; height: 60vw; top: -20vw; left: -10vw; background: radial-gradient(circle, #1a73e8 0%, transparent 70%); }
+    .light-leak-2 { width: 50vw; height: 50vw; bottom: -10vw; right: -10vw; background: radial-gradient(circle, #e8f0fe 0%, transparent 70%); animation-delay: -5s; }
+    .light-leak-3 { width: 40vw; height: 40vw; top: 20%; left: 50%; transform: translateX(-50%); background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, transparent 70%); filter: blur(100px); }
+    @keyframes pulse-slow {
+        0% { transform: scale(1) translate(0, 0); opacity: 0.4; }
+        100% { transform: scale(1.1) translate(2%, 2%); opacity: 0.7; }
+    }
+
+    /* 5. Bento Cards & 3D Effects */
+    .bento-card {
+        background: rgba(255, 255, 255, 0.4);
+        backdrop-filter: blur(40px);
+        -webkit-backdrop-filter: blur(40px);
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        border-radius: 24px;
+        padding: 2rem;
+        position: relative;
+        transform-style: preserve-3d;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        box-shadow: 
+            0 20px 40px -10px rgba(0, 91, 191, 0.1),
+            inset 0 0 0 1px rgba(255, 255, 255, 0.5),
+            inset 0 20px 40px rgba(255, 255, 255, 0.5);
+        z-index: 10;
+    }
+    .bento-card:hover {
+        transform: translateY(-10px) rotateX(5deg) rotateY(-5deg) scale(1.02);
+        box-shadow: 
+            0 30px 60px -15px rgba(26, 115, 232, 0.2),
+            inset 0 0 0 1px rgba(255, 255, 255, 0.8),
+            inset 0 20px 40px rgba(255, 255, 255, 0.6);
+        border-color: rgba(255, 255, 255, 1);
+        z-index: 20;
+    }
+    .icon-3d-wrapper {
+        position: absolute; top: -20px; right: -20px; width: 80px; height: 80px;
+        background: linear-gradient(135deg, #ffffff, #e8f0fe); border-radius: 20px;
+        display: flex; align-items: center; justify-content: center;
+        box-shadow: 20px 20px 60px rgba(26, 115, 232, 0.2); transform: translateZ(50px);
+    }
+    .bento-card:hover .icon-3d-wrapper { animation: float-icon 3s ease-in-out infinite alternate; }
+    @keyframes float-icon { 0% { transform: translateZ(80px) translateY(-10px); } 100% { transform: translateZ(80px) translateY(-20px); } }
+
+    .gradient-text-metric {
+        background: linear-gradient(135deg, #1a73e8, #0d9488);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 10px 30px rgba(26, 115, 232, 0.3);
+        display: inline-block;
+    }
+
+    /* CTA Button - Massive */
+    .btn-massive {
+        position: relative;
+        overflow: hidden;
+        background: #16a34a;
+        color: white;
+        padding: 1.5rem 4rem;
+        border-radius: 9999px;
+        font-weight: 800;
+        font-size: 1.25rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.2), 0 20px 40px -10px rgba(22, 163, 74, 0.5);
+        transition: all 0.3s ease;
+        transform-style: preserve-3d;
+    }
+    .btn-massive:hover {
+        transform: translateY(-5px) scale(1.05);
+        box-shadow: 0 0 0 6px rgba(22, 163, 74, 0.3), 0 30px 60px -15px rgba(22, 163, 74, 0.6), 0 0 40px rgba(22, 163, 74, 0.4);
+    }
+    .btn-massive::after {
+        content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+        background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 100%);
+        transform: rotate(45deg); animation: light-sweep 3s infinite linear; pointer-events: none;
+    }
+    @keyframes light-sweep { 0% { transform: translateX(-100%) rotate(45deg); } 100% { transform: translateX(100%) rotate(45deg); } }
+
+    /* Glowing SVG Paths */
+    .svg-flow-container { position: absolute; inset: 0; pointer-events: none; z-index: 5; }
+    .flow-path {
+        fill: none; stroke: url(#flow-gradient); stroke-width: 2; stroke-dasharray: 10 10;
+        animation: dash-flow 20s linear infinite; filter: drop-shadow(0 0 8px rgba(26, 115, 232, 0.6)); opacity: 0.5;
+    }
+    @keyframes dash-flow { to { stroke-dashoffset: -1000; } }
+
+    /* 6. Premium Mesh, Borders & Journey Section */
+    .premium-bg-layered {
+        background: linear-gradient(-45deg, #f9f9ff, #e6e8f2, #d8e2ff, #f2f3fd);
+        background-size: 400% 400%; animation: mesh-animation 15s ease infinite;
+        position: relative;
+    }
+    @keyframes mesh-animation { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+    
+    .tech-grid-overlay {
+        position: absolute; inset: 0;
+        background-image: linear-gradient(to right, rgba(26, 115, 232, 0.05) 1px, transparent 1px),
+                          linear-gradient(to bottom, rgba(26, 115, 232, 0.05) 1px, transparent 1px);
+        background-size: 50px 50px; pointer-events: none; z-index: 0;
+    }
+    .brand-mesh-accent {
+        position: absolute; inset: 0;
+        background: radial-gradient(circle at 20% 30%, rgba(26, 115, 232, 0.08) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 70%, rgba(0, 91, 191, 0.08) 0%, transparent 50%);
+        z-index: 0; pointer-events: none;
+    }
+
+    .glass-premium {
+        background: rgba(255, 255, 255, 0.45); backdrop-filter: blur(40px) saturate(180%);
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -4px rgba(0, 0, 0, 0.04), inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+        transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .glass-premium:hover {
+        transform: translateY(-8px) perspective(1000px) rotateX(1deg) rotateY(-1deg);
+        box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.08), 0 0 20px 5px rgba(0, 91, 191, 0.05);
+    }
+
+    /* Success Stories Section Styles */
+    .glass-panel {
+        background-color: rgba(30, 35, 45, 0.4); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3), inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .fade-out { opacity: 0; }
+    .fade-in { opacity: 1; }
+
+    /* Comparison Section Styles */
+
+    /* Comparison Section Styles */
+    .glass-dark-premium {
+        background: rgba(15, 23, 42, 0.92); backdrop-filter: blur(40px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05), 0 20px 50px rgba(0, 0, 0, 0.3);
+    }
+    .pulse-amber { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4); transition: all 0.3s ease; }
+    .group:hover .pulse-amber { animation: pulse-amber-glow 2s infinite; border-color: rgba(245, 158, 11, 0.5); }
+    @keyframes pulse-amber-glow { 0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4); } 70% { box-shadow: 0 0 0 10px rgba(245, 158, 11, 0); } 100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); } }
+    
+    .running-border { position: relative; z-index: 1; }
+    .running-border::after {
+        content: ''; position: absolute; inset: -1px; z-index: -1;
+        background: conic-gradient(from 0deg at 50% 50%, transparent 0%, rgba(255,255,255,0.8) 10%, transparent 20%, rgba(255,255,255,0.8) 50%, transparent 60%, rgba(255,255,255,0.8) 90%, transparent 100%);
+        animation: rotate-border 3s linear infinite; padding: 1.5px; border-radius: 25px;
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        mask-composite: exclude; -webkit-mask-composite: xor; filter: brightness(1.5);
+    }
+    @keyframes rotate-border { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    
+    .shimmer-glow-blue {
+        box-shadow: inset 0 0 25px rgba(255, 255, 255, 0.15), 0 30px 60px -12px rgba(0, 44, 150, 0.5);
+        animation: soft-pulse 4s infinite ease-in-out;
+    }
+    @keyframes soft-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.005); } }
+    
+    .shimmer-overlay {
+        position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+        background: linear-gradient(to right, transparent, rgba(255,255,255,0.1), transparent);
+        animation: shimmer-slide 3s infinite; pointer-events: none;
+    }
+    @keyframes shimmer-slide { 0% { transform: translateX(-100%) rotate(45deg); } 100% { transform: translateX(200%) rotate(45deg); } }
+
+    /* Roadmap Section Enhancements */
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    .icon-parallax { transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+    .step-card:hover .icon-parallax { transform: translateY(-4px) scale(1.05); }
+    
+    @keyframes slideUp {
+        0% { opacity: 0; transform: translateY(20px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+    .animate-slide-up { animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+    /* Global Roadmap & Mesh Styles */
+    .mesh-gradient-animated {
+        background-color: #ffffff;
+        background-image: 
+            linear-gradient(to right, rgba(232, 240, 254, 0.5) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(232, 240, 254, 0.5) 1px, transparent 1px),
+            radial-gradient(at 0% 0%, #e8f0fe 0px, transparent 50%),
+            radial-gradient(at 100% 0%, #f9f9ff 0px, transparent 50%),
+            radial-gradient(at 100% 100%, #e8f0fe 0px, transparent 50%),
+            radial-gradient(at 0% 100%, #ffffff 0px, transparent 50%);
+        background-size: 40px 40px, 40px 40px, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+        animation: meshMove 20s ease-in-out infinite alternate;
+    }
+    @keyframes meshMove {
+        0% { background-position: 0% 0%, 0% 0%, 0% 0%, 100% 0%, 100% 100%, 0% 100%; }
+        100% { background-position: 0% 0%, 0% 0%, 10% 10%, 90% 10%, 90% 90%, 10% 90%; }
+    }
+
+    .glass-card-interactive {
+        background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .glass-card-interactive:hover {
+        box-shadow: 0 20px 40px -20px rgba(0, 91, 191, 0.15);
+        transform: translateY(-4px); border-color: rgba(0, 91, 191, 0.2);
+    }
+
+    .glass-card-interactive:hover {
+        box-shadow: 0 20px 40px -20px rgba(0, 91, 191, 0.15);
+        transform: translateY(-4px); border-color: rgba(0, 91, 191, 0.2);
+    }
+
+    /* Evidence Vault Styles */
+    .premium-vault-bg { position: relative; isolation: isolate; background-color: #ffffff; }
+    .premium-vault-bg::before {
+        content: ''; position: absolute; top: -10%; left: -5%; width: 60%; height: 80%;
+        background: radial-gradient(circle, rgba(26, 115, 232, 0.08) 0%, transparent 70%);
+        z-index: -2; filter: blur(80px); pointer-events: none;
+    }
+    .premium-vault-bg::after {
+        content: ''; position: absolute; bottom: -10%; right: -5%; width: 50%; height: 70%;
+        background: radial-gradient(circle, rgba(0, 137, 59, 0.05) 0%, transparent 70%);
+        z-index: -2; filter: blur(80px); pointer-events: none;
+    }
+    .tech-grid-overlay {
+        position: absolute; inset: 0;
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+        background-size: 40px 40px; mask-image: radial-gradient(ellipse at center, black, transparent 90%);
+        z-index: -1; pointer-events: none;
+    }
+    .glass-artifact-card { backdrop-filter: blur(8px); background-color: rgba(255, 255, 255, 0.85); }
+    .bg-paper-texture {
+        background-color: #ffffff;
+        background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+    }
+
+    @keyframes popIn {
+        0% { opacity: 0; transform: translateY(40px) scale(0.9); }
+        70% { transform: translateY(-5px) scale(1.02); }
+        100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    @keyframes slideDownFade {
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-pop-in { animation: popIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; opacity: 0; }
+    .animate-slide-down-fade { animation: slideDownFade 0.8s ease-out forwards; }
+    .card-glow-hover:hover { box-shadow: 0 20px 40px -15px rgba(0, 91, 191, 0.25); }
+
+    .card-glow-hover:hover { box-shadow: 0 20px 40px -15px rgba(0, 91, 191, 0.25); }
+
+    /* Expert Profile Styles */
+    @keyframes gradient-pan {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+    
+    .mesh-bg {
+        background-color: #ffffff;
+        background-image: 
+            radial-gradient(at 80% 0%, #e8f0fe 0px, transparent 50%),
+            radial-gradient(at 0% 50%, rgba(26, 115, 232, 0.15) 0px, transparent 50%),
+            radial-gradient(at 80% 100%, #e8f0fe 0px, transparent 50%),
+            radial-gradient(at 0% 0%, rgba(26, 115, 232, 0.1) 0px, transparent 50%);
+        background-size: 200% 200%;
+        animation: gradient-pan 20s ease infinite;
+        background-attachment: fixed;
+    }
+
+    .blueprint-grid-overlay {
+        background-image: 
+            linear-gradient(to right, rgba(26, 115, 232, 0.08) 1px, transparent 1px), 
+            linear-gradient(to bottom, rgba(26, 115, 232, 0.08) 1px, transparent 1px);
+        background-size: 40px 40px;
+    }
+
+    .monospaced {
+        font-family: 'JetBrains Mono', monospace;
+    }
+    
+    .glass-card {
+        background: rgba(255, 255, 255, 0.6);
+        backdrop-filter: blur(20px) saturate(160%);
+        -webkit-backdrop-filter: blur(20px) saturate(160%);
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        box-shadow: 
+            0 4px 30px rgba(0, 0, 0, 0.03),
+            inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+        transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    
+    .glass-card:hover {
+        transform: translateY(-8px) scale(1.01);
+        background: rgba(255, 255, 255, 0.75);
+        border: 1px solid rgba(26, 115, 232, 0.2);
+        box-shadow: 
+            0 20px 40px -10px rgba(26, 115, 232, 0.12),
+            0 0 0 1px rgba(255, 255, 255, 0.9);
+    }
+
+    .premium-halo {
+        position: absolute;
+        width: 140%;
+        height: 140%;
+        top: -20%;
+        left: -20%;
+        background: radial-gradient(circle, rgba(26, 115, 232, 0.08) 0%, transparent 70%);
+        filter: blur(60px);
+        pointer-events: none;
+        z-index: -1;
+    }
+
+    .perspective-container {
+        perspective: 2000px;
+    }
+
+    .tech-markings {
+        background-image: radial-gradient(rgba(26, 115, 232, 0.1) 1px, transparent 1px);
+        background-size: 10px 10px;
+    }
+
+    /* FAQ Specific Styles */
+    .faq-mesh-bg {
+        background-color: #f9f9ff;
+        background-image: 
+            radial-gradient(circle at 50% 50%, rgba(26, 115, 232, 0.05) 0px, transparent 60%),
+            linear-gradient(rgba(26, 115, 232, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(26, 115, 232, 0.03) 1px, transparent 1px);
+        background-size: 100% 100%, 40px 40px, 40px 40px; transition: background-position 0.5s ease;
+    }
+    .faq-card {
+        background: rgba(255, 255, 255, 0.6); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .faq-card:hover { transform: scale(1.02); box-shadow: 0 0 30px rgba(0, 91, 191, 0.15); border-color: rgba(0, 91, 191, 0.4); }
+    .high-gloss-card {
+        background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.4) 100%);
+        backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid rgba(255, 255, 255, 0.8);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+    }
+    .pulse-btn { animation: pulse-green 2s infinite; }
+    @keyframes pulse-green {
+        0% { box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.7); }
+        70% { box-shadow: 0 0 0 10px rgba(22, 163, 74, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(22, 163, 74, 0); }
+    }
+    .status-pulse { animation: status-pulse 2s infinite; }
+    @keyframes status-pulse {
+        0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+        70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(34, 197, 94, 0); }
+        100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+    }
+    .text-gradient { background: linear-gradient(to right, #005bbf, #1a73e8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+    .text-gradient { background: linear-gradient(to right, #005bbf, #1a73e8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+    /* Live Event Styles */
+    @keyframes blob {
+        0% { transform: translate(0px, 0px) scale(1); }
+        33% { transform: translate(30px, -50px) scale(1.1); }
+        66% { transform: translate(-20px, 20px) scale(0.9); }
+        100% { transform: translate(0px, 0px) scale(1); }
+    }
+    .animate-blob { animation: blob 7s infinite; }
+    .animation-delay-2000 { animation-delay: 2s; }
+    .animation-delay-4000 { animation-delay: 4s; }
+
+    .animation-delay-4000 { animation-delay: 4s; }
+
+    /* Comparison Redesign Styles */
+    .mesh-gradient-blue {
+        background: linear-gradient(135deg, #1a73e8 0%, #0052cc 100%);
+        background-image: 
+            radial-gradient(at 0% 0%, rgba(96, 165, 250, 0.6) 0px, transparent 50%),
+            radial-gradient(at 100% 0%, rgba(59, 130, 246, 0.4) 0px, transparent 50%),
+            radial-gradient(at 50% 100%, rgba(37, 99, 235, 0.8) 0px, transparent 50%);
+    }
+    .glass-dark { background: rgba(30, 41, 59, 0.85); backdrop-filter: blur(40px); -webkit-backdrop-filter: blur(40px); border: 1px solid rgba(255, 255, 255, 0.05); }
+    .glass-blue { backdrop-filter: blur(60px); -webkit-backdrop-filter: blur(60px); border: 1px solid rgba(255, 255, 255, 0.25); }
+    .glass-icon {
+        background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    }
+    .floating { animation: float 6s ease-in-out infinite; }
+    .floating-delayed { animation: float 6s ease-in-out 3s infinite; }
+    @keyframes float {
+        0% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-15px) rotate(5deg); }
+        100% { transform: translateY(0px) rotate(0deg); }
+    }
+    .glow-line {
+        background: linear-gradient(90deg, transparent, rgba(26, 115, 232, 0.8), transparent);
+        box-shadow: 0 0 15px rgba(26, 115, 232, 0.5); animation: pulse-glow 2s infinite alternate;
+    }
+    @keyframes pulse-glow {
+        0% { opacity: 0.5; box-shadow: 0 0 10px rgba(26, 115, 232, 0.3); }
+        100% { opacity: 1; box-shadow: 0 0 20px rgba(26, 115, 232, 0.7); }
+    }
+    .hover-tilt { transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+    .hover-tilt:hover { transform: scale(1.02) translateY(-5px); }
+    .premium-tag { background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+    .card-aura-wrapper { position: relative; }
+    .card-aura-wrapper::before {
+        content: ''; position: absolute; inset: -20px; background: radial-gradient(circle, rgba(26, 115, 232, 0.15) 0%, transparent 70%);
+        opacity: 0; transition: opacity 0.5s ease; z-index: -1; border-radius: 40px;
+    }
+    .card-aura-wrapper:hover::before { opacity: 1; }
+    @keyframes float-tag { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    .floating-tag { animation: float-tag 4s ease-in-out infinite; }
+    .floating-tag-delayed { animation: float-tag 4s ease-in-out 2s infinite; }
+
+    .floating-tag { animation: float-tag 4s ease-in-out infinite; }
+    .floating-tag-delayed { animation: float-tag 4s ease-in-out 2s infinite; }
+
+    /* Mastery Journey Redesign Styles */
+    .premium-mesh {
+        background: radial-gradient(at 0% 0%, hsla(210,100%,98%,1) 0, transparent 50%), 
+                    radial-gradient(at 100% 0%, hsla(202,100%,96%,1) 0, transparent 50%), 
+                    radial-gradient(at 100% 100%, hsla(210,100%,98%,1) 0, transparent 50%), 
+                    radial-gradient(at 0% 100%, hsla(202,100%,96%,1) 0, transparent 50%);
+    }
+    .icon-glow { filter: drop-shadow(0 0 8px rgba(0, 91, 191, 0.3)); }
+    .icon-float { animation: float-3d 3s ease-in-out infinite; }
+    @keyframes float-3d {
+        0%, 100% { transform: translateY(0) rotate(0deg); }
+        50% { transform: translateY(-8px) rotate(3deg); }
+    }
+    .shimmer-btn { position: relative; overflow: hidden; }
+    .shimmer-btn::after {
+        content: ''; position: absolute; top: -50%; left: -60%; width: 20%; height: 200%;
+        background: rgba(255, 255, 255, 0.3); transform: rotate(30deg); animation: shimmer-effect 3s infinite;
+    }
+    @keyframes shimmer-effect {
+        0% { left: -60%; }
+        20% { left: 120%; }
+        100% { left: 120%; }
+    }
+    @keyframes pop-in {
+        from { transform: scale(0.9) translateY(20px); opacity: 0; }
+        to { transform: scale(1) translateY(0); opacity: 1; }
+    }
+    .stagger-1 { animation: pop-in 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; opacity: 0; animation-delay: 0.1s; }
+    .stagger-2 { animation: pop-in 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; opacity: 0; animation-delay: 0.2s; }
+    .stagger-3 { animation: pop-in 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; opacity: 0; animation-delay: 0.3s; }
+    .stagger-4 { animation: pop-in 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; opacity: 0; animation-delay: 0.4s; }
+    
+    @keyframes pulse-ring {
+        0% { transform: scale(0.8); opacity: 0.5; }
+        100% { transform: scale(1.5); opacity: 0; }
+    }
+    .mesh-gradient-teal {
+        background-color: #005bc0;
+        background-image: 
+            radial-gradient(at 40% 20%, hsla(228,100%,74%,1) 0px, transparent 50%),
+            radial-gradient(at 80% 0%, hsla(189,100%,56%,1) 0px, transparent 50%),
+            radial-gradient(at 0% 50%, hsla(355,100%,93%,1) 0px, transparent 50%),
+            radial-gradient(at 80% 50%, hsla(340,100%,76%,1) 0px, transparent 50%),
+            radial-gradient(at 0% 100%, hsla(22,100%,77%,1) 0px, transparent 50%),
+            radial-gradient(at 80% 100%, hsla(242,100%,70%,1) 0px, transparent 50%),
+            radial-gradient(at 0% 0%, hsla(343,100%,76%,1) 0px, transparent 50%);
+    }
+
+    .animate-slide-up { animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+    /* Technical Blueprint Redesign Styles */
+    .tech-card {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(40px);
+        -webkit-backdrop-filter: blur(40px);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        position: relative;
+        overflow: hidden;
+        transition: all 0.5s ease;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    }
+    .tech-card::before {
+        content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px;
+        background: linear-gradient(90deg, transparent, #005bbf, transparent);
+        opacity: 0.2; transition: opacity 0.3s;
+    }
+    .tech-card:hover::before { opacity: 1; box-shadow: 0 0 10px rgba(0, 91, 191, 0.5); }
+    .tech-card::after {
+        content: ''; position: absolute; inset: 0; border: 1px solid transparent;
+        transition: border-color 0.5s; pointer-events: none;
+    }
+    .tech-card:hover::after { border-color: rgba(0, 91, 191, 0.2); box-shadow: inset 0 0 20px rgba(0, 91, 191, 0.03); }
+    
+    @keyframes glitch-fade {
+        0% { opacity: 0; transform: translateY(10px) skewX(10deg); filter: drop-shadow(2px 0 rgba(0,91,191,0.5)) drop-shadow(-2px 0 rgba(0,110,45,0.5)); }
+        50% { opacity: 0.5; transform: translateY(-2px) skewX(-5deg); filter: none; }
+        100% { opacity: 1; transform: translateY(0) skewX(0); }
+    }
+    .glitch-text { animation: glitch-fade 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; opacity: 0; }
+    
+    .data-line { position: absolute; background: rgba(0, 91, 191, 0.1); z-index: 0; }
+    .data-line-h { height: 1px; width: 100%; }
+    .data-line-v { width: 1px; height: 100%; }
+    .data-line::after { content: ''; position: absolute; background: #005bbf; box-shadow: 0 0 8px rgba(0, 91, 191, 0.5); }
+    .data-line-h::after { top: -1px; left: 0; width: 30px; height: 3px; animation: flow-h 3s linear infinite; }
+    .data-line-v::after { top: 0; left: -1px; width: 3px; height: 30px; animation: flow-v 3s linear infinite; }
+    @keyframes flow-h { 0% { left: -30px; opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { left: 100%; opacity: 0; } }
+    @keyframes flow-v { 0% { top: -30px; opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { top: 100%; opacity: 0; } }
+    
+    .light-leak-subtle { position: absolute; width: 40vw; height: 40vw; background: radial-gradient(circle, rgba(0,91,191,0.05) 0%, rgba(255,255,255,0) 70%); filter: blur(40px); pointer-events: none; z-index: 0; }
+    .btn-neon { background: transparent; color: #007230; border: 1px solid #007230; box-shadow: 0 0 15px rgba(0, 114, 48, 0.1), inset 0 0 10px rgba(0, 114, 48, 0.05); transition: all 0.3s; }
+    .btn-neon:hover { background: rgba(0, 114, 48, 0.05); box-shadow: 0 0 25px rgba(0, 114, 48, 0.2), inset 0 0 15px rgba(0, 114, 48, 0.1); }
+    .monospace-metric { font-family: 'Space Mono', monospace; color: #005bbf; }
+        -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;
+        animation: border-rotate 6s linear infinite;
+    }
+    @property --border-angle { syntax: "<angle>"; initial-value: 0deg; inherits: false; }
+    @keyframes border-rotate { from { --border-angle: 0deg; } to { --border-angle: 360deg; } }
+
+    .icon-3d-wrapper .material-symbols-outlined {
+        font-size: 36px; background: linear-gradient(135deg, #1a73e8, #005bbf);
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        filter: drop-shadow(0 4px 6px rgba(0,91,191,0.3));
+    }
+
+    @media (max-width: 768px) {
+        .mobile-carousel {
+            display: flex !important; overflow-x: auto !important; scroll-snap-type: x mandatory !important;
+            padding: 0 24px 32px 24px !important; gap: 16px !important; scrollbar-width: none; -webkit-overflow-scrolling: touch;
+        }
+        .mobile-carousel::-webkit-scrollbar { display: none; }
+        .mobile-carousel > article { min-width: 85vw !important; scroll-snap-align: center !important; margin-bottom: 8px; }
+    }
+
+    .premium-border-glow::after {
+        content: ''; position: absolute; inset: 0; padding: 1px;
+        background: conic-gradient(from var(--border-angle, 0deg), transparent 0%, transparent 70%, #1a73e8 90%, #0d9488 100%);
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor; mask-composite: exclude;
+        pointer-events: none; animation: border-rotate 6s linear infinite;
+    }
+    @property --border-angle { syntax: "<angle>"; initial-value: 0deg; inherits: false; }
+    @keyframes border-rotate { from { --border-angle: 0deg; } to { --border-angle: 360deg; } }
+
+    /* 7. Roadmap & Step Cards */
+    .step-card { box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04); border: 1px solid rgba(0, 0, 0, 0.03); transition: transform 0.3s; }
+    .step-card:hover { transform: translateY(-4px); }
+    .icon-parallax { transition: transform 0.4s; }
+    .step-card:hover .icon-parallax { transform: translateY(-4px) scale(1.05); }
+
+    /* 8. Animations & Reveal System */
+    .reveal { opacity: 0; transform: translateY(30px); transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1); }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+    
+    @keyframes float-tech {
+        0% { transform: translateY(0) rotate(0deg); opacity: 0.1; }
+        50% { transform: translateY(-40px) rotate(180deg); opacity: 0.3; }
+        100% { transform: translateY(0) rotate(360deg); opacity: 0.1; }
+    }
+    .tech-glyph {
+        position: absolute; color: var(--primary); font-size: 24px; pointer-events: none;
+        animation: float-tech 15s linear infinite; z-index: 1;
+    }
+
+    /* 9. Section Connectors (Neural Bridges) */
+    .section-connector-v {
+        position: absolute; left: 50%; transform: translateX(-50%);
+        width: 1px; height: 160px; background: linear-gradient(to bottom, transparent, #005bbf, transparent);
+        opacity: 0.3; z-index: 5;
+    }
+    .connector-glow {
+        position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+        width: 8px; height: 8px; background: #005bbf; border-radius: 50%;
+        box-shadow: 0 0 15px #005bbf; opacity: 0.5;
+    }
+
+    /* 10. Smooth Scroll & Interactivity */
+    html { scroll-behavior: smooth; }
+    .magnetic-btn { transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1); }
+    .magnetic-btn:hover { transform: scale(1.05); }
+
+    /* 11. Mobile Optimizations */
+    @media (max-width: 768px) {
+        .toast-container {
+            bottom: auto !important;
+            top: 20px !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            width: 100% !important;
+            padding: 0 16px;
+        }
+        .toast-container > div {
+            left: 0 !important;
+            right: 0 !important;
+            margin: 0 auto !important;
+            width: 100% !important;
+        }
+        .mobile-sticky-cta {
+            display: flex !important;
+            animation: slide-up-sticky 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+    }
+    @keyframes slide-up-sticky {
+        from { transform: translateY(100%); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+    .mobile-sticky-cta {
+        display: none;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 16px 20px 24px;
+        background: linear-gradient(to top, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 100%);
+        backdrop-filter: blur(8px);
+        z-index: 100;
+        justify-content: center;
+    }
+
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    .animate-fade-in { animation: fadeInUp 0.8s cubic-bezier(0.21, 1.02, 0.73, 1) forwards; }
+    .shimmer-btn::after {
+        content: ''; position: absolute; top: -50%; left: -60%; width: 20%; height: 200%;
+        background: rgba(255, 255, 255, 0.3); transform: rotate(30deg); animation: shimmer-effect 3s infinite;
+    }
+    @keyframes shimmer-effect { 0% { left: -60%; } 20% { left: 120%; } 100% { left: 120%; } }
+</style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen relative selection:bg-primary-container selection:text-on-primary-container">
+
+<!-- Background Persistent Effects -->
+<div class="light-leak-container">
+    <div class="light-leak light-leak-1"></div>
+    <div class="light-leak light-leak-2"></div>
+    <div class="light-leak light-leak-3"></div>
+</div>
+
+<!-- Navigation -->
+<nav class="fixed top-0 w-full z-50 border-b border-white/10 bg-white/20 backdrop-blur-xl shadow-sm">
+<div class="max-w-container-max mx-auto px-6 h-20 flex justify-between items-center">
+<div class="text-2xl font-black tracking-tighter text-blue-700 font-['Inter']">Newstrides</div>
+<div class="hidden md:flex space-x-8 items-center">
+<a class="text-gray-600 hover:text-blue-500 font-medium px-3 py-2 rounded-lg transition-all" href="#programs">Programs</a>
+<a class="text-gray-600 hover:text-blue-500 font-medium px-3 py-2 rounded-lg transition-all" href="#blueprint">Blueprint</a>
+<a class="text-gray-600 hover:text-blue-500 font-medium px-3 py-2 rounded-lg transition-all" href="#journey">Mastery</a>
+<a class="text-gray-600 hover:text-blue-500 font-medium px-3 py-2 rounded-lg transition-all" href="#roadmap">Roadmap</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-lg font-medium hover:bg-primary/90 transition-all shadow-md">Apply Now</button>
+</div>
+</div>
+</nav>
+
+<!-- Section 1: Hero -->
+<main class="relative pt-24 md:pt-[120px] pb-xxl min-h-screen flex flex-col justify-center overflow-hidden">
+    <div class="absolute inset-0 z-0 grid-pattern opacity-50 pointer-events-none"></div>
+    <div class="max-w-container-max mx-auto px-6 w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center flex-grow">
+        <div class="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left space-y-8">
+            <div class="inline-flex items-center space-x-2 bg-white/60 backdrop-blur-md border border-white px-4 py-2 rounded-full shadow-sm">
+                <span class="relative flex h-3 w-3"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-error opacity-75"></span><span class="relative inline-flex rounded-full h-3 w-3 bg-error"></span></span>
+                <span class="font-label-md text-error uppercase tracking-widest">LIVE SESSION: LIMITED SEATS AVAILABLE</span>
+            </div>
+            <h1 class="font-display text-4xl md:text-5xl lg:text-display text-on-surface">Unlock Your Global Future with a <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Proven Roadmap</span></h1>
+            <p class="font-body-lg text-on-surface-variant max-w-2xl leading-relaxed">Join elite admissions experts to decode the strategies that secure placements in top-tier international universities. This comprehensive session provides actionable insights and a clear path to your academic aspirations.</p>
+            <div class="flex items-center space-x-6 mt-4">
+                <div class="w-16 h-16 bg-white rounded-xl shadow-lg flex items-center justify-center transform -rotate-6 hover:rotate-0 transition-transform duration-300"><span class="material-symbols-outlined text-4xl text-primary" style="font-variation-settings: 'FILL' 1;">flight_takeoff</span></div>
+                <div class="w-16 h-16 bg-white rounded-xl shadow-lg flex items-center justify-center transform rotate-6 hover:rotate-0 transition-transform duration-300"><span class="material-symbols-outlined text-4xl text-tertiary" style="font-variation-settings: 'FILL' 1;">school</span></div>
+            </div>
+        </div>
+        <div class="lg:col-span-5 w-full max-w-md mx-auto lg:mx-0 lg:ml-auto">
+            <div class="bg-white/70 backdrop-blur-xl border border-white rounded-2xl p-8 shadow-xl relative overflow-hidden" id="registration-hub">
+                <!-- Floating Tech Particles -->
+                <span class="material-symbols-outlined tech-glyph" style="top:5%; right:5%; animation-duration: 20s; font-size: 16px;">settings_cinematic</span>
+                <span class="material-symbols-outlined tech-glyph" style="bottom:10%; left:5%; animation-duration: 15s; font-size: 14px;">token</span>
+                <div class="mb-6 relative z-10"><h2 class="font-h3 text-on-surface mb-2">Reserve Your Spot</h2><div class="flex items-center space-x-2 text-error"><span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">local_fire_department</span><span class="font-label-md">Only 14 seats left</span></div></div>
+                <div class="grid grid-cols-3 gap-3 mb-8 relative z-10">
+                    <div class="bg-surface-container-low rounded-lg p-3 text-center border border-white shadow-sm"><div class="font-h2 text-primary">02</div><div class="font-caption text-on-surface-variant uppercase mt-1">Days</div></div>
+                    <div class="bg-surface-container-low rounded-lg p-3 text-center border border-white shadow-sm"><div class="font-h2 text-primary">14</div><div class="font-caption text-on-surface-variant uppercase mt-1">Hours</div></div>
+                    <div class="bg-surface-container-low rounded-lg p-3 text-center border border-white shadow-sm"><div class="font-h2 text-primary">45</div><div class="font-caption text-on-surface-variant uppercase mt-1">Mins</div></div>
+                </div>
+                <form class="space-y-4 relative z-10">
+                    <input class="w-full bg-white border border-outline-variant rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary transition-shadow" placeholder="Full Name" type="text"/>
+                    <input class="w-full bg-white border border-outline-variant rounded-xl px-4 py-3 focus:ring-2 focus:ring-primary transition-shadow" placeholder="Email Address" type="email"/>
+                    <button class="w-full bg-tertiary text-on-tertiary font-label-md py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden group" type="submit">Secure Registration <span class="material-symbols-outlined ml-2 text-sm">arrow_forward</span></button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Marquee -->
+    <div class="w-full mt-xxl border-t border-outline-variant/30 pt-8 relative z-10">
+        <p class="text-center font-caption text-on-surface-variant uppercase tracking-widest mb-8">Trusted by prospective students targeting</p>
+        <div class="marquee-container w-full overflow-hidden whitespace-nowrap py-4">
+            <div class="flex items-center w-max animate-scroll-right">
+                <ul class="flex items-center space-x-12 px-6 opacity-50 grayscale">
+                    <li class="font-h3 text-on-surface-variant">Stanford</li><li class="font-h3 text-on-surface-variant">MIT</li><li class="font-h3 text-on-surface-variant">Harvard</li><li class="font-h3 text-on-surface-variant">Oxford</li><li class="font-h3 text-on-surface-variant">Cambridge</li>
+                </ul>
+                <ul class="flex items-center space-x-12 px-6 opacity-50 grayscale">
+                    <li class="font-h3 text-on-surface-variant">Stanford</li><li class="font-h3 text-on-surface-variant">MIT</li><li class="font-h3 text-on-surface-variant">Harvard</li><li class="font-h3 text-on-surface-variant">Oxford</li><li class="font-h3 text-on-surface-variant">Cambridge</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Neural Bridge Connector -->
+    <div class="section-connector-v bottom-[-80px]"><div class="connector-glow"></div></div>
+</main>
+
+<!-- Section 2: Technical Blueprint -->
+<section id="blueprint" class="relative z-10 w-full min-h-screen flex flex-col items-center justify-center py-24 px-6 md:px-12 bg-grid overflow-hidden reveal">
+    <div class="light-leak-subtle top-[-20vw] left-[-20vw]"></div>
+    <div class="light-leak-subtle bottom-[-20vw] right-[-20vw]"></div>
+    
+    <!-- Header -->
+    <div class="text-center mb-20 max-w-3xl glitch-text">
+        <div class="inline-block px-4 py-1 border border-primary/20 rounded-full mb-6 bg-primary/5">
+            <span class="font-mono text-primary text-xs uppercase tracking-widest">Sys.Init // Curriculum</span>
+        </div>
+        <h2 class="font-h1 text-4xl md:text-5xl font-bold text-on-surface mb-6 tracking-tight">What You'll Learn</h2>
+        <p class="text-lg text-on-surface-variant font-light">Master the complexities of international education with our comprehensive curriculum designed for definitive success.</p>
+    </div>
+
+    <!-- Master Path Layout -->
+    <div class="relative w-full max-w-6xl mx-auto">
+        <!-- Background Data Flow Lines -->
+        <div class="hidden lg:block absolute top-1/2 left-0 w-full h-px data-line data-line-h transform -translate-y-1/2"></div>
+        <div class="hidden lg:block absolute top-0 left-1/3 w-px h-full data-line data-line-v"></div>
+        <div class="hidden lg:block absolute top-0 right-1/3 w-px h-full data-line data-line-v"></div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 relative z-10">
+            <!-- Flanker Left Column -->
+            <div class="flex flex-col gap-8">
+                <!-- ROI Matrix -->
+                <div class="tech-card rounded-lg p-6 flex flex-col justify-between h-full min-h-[240px] group">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="material-symbols-outlined text-primary">public</span>
+                        <span class="font-mono text-xs text-outline">SEC_01</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-on-surface mb-2 group-hover:text-primary transition-colors glitch-text">2026 Country & Career ROI Matrix</h3>
+                        <p class="text-sm text-on-surface-variant">Strategic comparison of UK, Ireland, and Dubai markets to maximize your educational investment returns.</p>
+                    </div>
+                </div>
+                <!-- Job Strategy -->
+                <div class="tech-card rounded-lg p-6 flex flex-col justify-between h-full min-h-[240px] group">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="material-symbols-outlined text-primary">work</span>
+                        <span class="font-mono text-xs text-outline">SEC_04</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-on-surface mb-2 group-hover:text-primary transition-colors glitch-text">Post-Arrival Job Strategy</h3>
+                        <p class="text-sm text-on-surface-variant">Actionable tactics for navigating local job markets and securing high-value internships and placements.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Master Path Center -->
+            <div class="tech-card rounded-xl p-8 flex flex-col justify-center items-center text-center lg:col-span-1 shadow-[0_0_30px_rgba(0,0,0,0.05)] border-primary/20 relative min-h-[500px] group">
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,91,191,0.03)_0%,transparent_70%)] pointer-events-none"></div>
+                <div class="w-16 h-16 rounded-full border border-primary/30 flex items-center justify-center mb-8 bg-surface shadow-[0_0_15px_rgba(0,91,191,0.1)]">
+                    <span class="material-symbols-outlined text-primary text-3xl">verified_user</span>
+                </div>
+                <div class="monospace-metric text-6xl md:text-7xl font-bold mb-4 tracking-tighter glitch-text">98%</div>
+                <h3 class="text-2xl md:text-3xl font-bold text-on-surface mb-4 glitch-text">The Visa Success Blueprint</h3>
+                <p class="text-base text-on-surface-variant max-w-sm">Leverage our 20-year proven documentation logic to navigate complex immigration requirements with absolute confidence.</p>
+                <div class="absolute bottom-4 left-0 w-full flex justify-center space-x-2 opacity-50">
+                    <div class="w-1 h-1 bg-primary rounded-full"></div>
+                    <div class="w-1 h-1 bg-primary rounded-full"></div>
+                    <div class="w-1 h-1 bg-primary rounded-full"></div>
+                </div>
+            </div>
+
+            <!-- Flanker Right Column -->
+            <div class="flex flex-col gap-8">
+                <!-- Hidden Funding -->
+                <div class="tech-card rounded-lg p-6 flex flex-col justify-between h-full min-h-[240px] group">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="material-symbols-outlined text-primary">account_balance</span>
+                        <span class="font-mono text-xs text-outline">SEC_02</span>
+                    </div>
+                    <div>
+                        <div class="monospace-metric text-2xl font-bold mb-2">Up to $10k+</div>
+                        <h3 class="text-xl font-semibold text-on-surface mb-2 group-hover:text-primary transition-colors glitch-text">'Hidden' Funding Access</h3>
+                        <p class="text-sm text-on-surface-variant">Discover exclusive grants and alternative funding avenues.</p>
+                    </div>
+                </div>
+                <!-- Industry Insider -->
+                <div class="tech-card rounded-lg p-6 flex flex-col justify-between h-full min-h-[240px] group">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="material-symbols-outlined text-primary">handshake</span>
+                        <span class="font-mono text-xs text-outline">SEC_05</span>
+                    </div>
+                    <div>
+                        <div class="monospace-metric text-2xl font-bold mb-2">20+ Yrs</div>
+                        <h3 class="text-xl font-semibold text-on-surface mb-2 group-hover:text-primary transition-colors glitch-text">Industry Insider Access</h3>
+                        <p class="text-sm text-on-surface-variant">Tap into our network of 500+ partners and gain direct insights from seasoned professionals.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="mt-20 z-10 glitch-text">
+        <button class="btn-neon px-8 py-4 rounded font-mono font-bold uppercase tracking-widest text-sm flex items-center gap-3">
+            Initialize Sequence
+            <span class="material-symbols-outlined text-[18px]">arrow_forward_ios</span>
+        </button>
+    </div>
+</section>
+
+<!-- Neural Bridge Connector -->
+<div class="section-connector-v" style="margin-top: -80px; position: relative;"><div class="connector-glow"></div></div>
+
+<!-- Section 3: Mastery Journey -->
+<section id="journey" class="relative z-10 w-full min-h-screen py-32 px-6 premium-bg-layered reveal">
+    <div class="tech-grid-overlay"></div>
+    <div class="brand-mesh-accent"></div>
+    <div class="max-w-container-max mx-auto px-lg relative z-10">
+        <!-- Section Header -->
+        <div class="mb-xl text-center max-w-2xl mx-auto">
+            <h2 class="font-h1 text-h1 text-on-surface mb-md tracking-[-0.02em] text-[#1e293b]">Master Your Journey</h2>
+            <p class="font-body-lg text-body-lg text-on-surface-variant">Unlock the exact frameworks and strategies used by elite students to secure placements in top global universities.</p>
+        </div>
+        <!-- Bento Grid Layout -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-lg auto-rows-[minmax(280px,auto)]">
+            <!-- Module 1: The 2026 Country Selection Matrix -->
+            <div class="md:col-span-2 glass-premium rounded-[24px] overflow-hidden group stagger-1 relative" style="animation-delay: 0.1s;">
+                <div class="light-leak -top-20 -left-20" style="background: radial-gradient(circle, rgba(0, 91, 191, 0.2) 0%, transparent 80%); width: 400px; height: 400px;"></div>
+                <div class="flex flex-col md:flex-row h-full">
+                    <div class="w-full md:w-1/2 p-lg flex flex-col justify-between z-10">
+                        <div>
+                            <div class="flex items-center space-x-sm mb-md">
+                                <span class="glass-pill px-sm py-xs text-on-primary-fixed-variant font-caption text-caption rounded-full uppercase tracking-widest">Core Module</span>
+                                <div class="flex items-center space-x-xs">
+                                    <span class="relative flex h-2 w-2">
+                                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                        <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                                    </span>
+                                    <span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-tighter">Live Data</span>
+                                </div>
+                            </div>
+                            <h3 class="font-h3 text-h3 tracking-[-0.02em] text-[#1e293b] mb-sm">The 2026 Country Selection Matrix</h3>
+                            <p class="font-body-md text-body-md text-on-surface-variant mb-lg">Navigate complex post-study work rights and emerging tech hubs with our proprietary AI-powered decision framework.</p>
+                        </div>
+                        <div class="flex items-center space-x-md">
+                            <div class="glass-pill px-md py-sm rounded-xl flex items-center space-x-xs">
+                                <span class="material-symbols-outlined text-primary text-[18px] icon-glow icon-float">monitoring</span>
+                                <span class="font-label-md text-label-md text-on-surface">Data-Driven</span>
+                            </div>
+                            <div class="glass-pill px-md py-sm rounded-xl flex items-center space-x-xs">
+                                <span class="material-symbols-outlined text-primary text-[18px] icon-glow icon-float">public</span>
+                                <span class="font-label-md text-label-md text-on-surface">15+ Nations</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2 relative min-h-[250px] bg-surface-container-high overflow-hidden">
+                        <img alt="Student" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCa9dnXjUBYrX4Q3P9OFWRCKFPctghTTzFq2BuezfvwzH8uXRfD4KBFgqbnMDN1Nf1bAjoyuuxE6BiWUEcbOOk-TSVbuPX-gjH2WnY8bJgKhk9dq3N96BQSx0rLlXMfVRPWRQTQ1vOENQn-L1ZMIrWQtTCwLSkhI4sm421WefkWijOG8YWhrC782SSYZYMMnHxLbrY_b3dutFGGebbpFuDnbMr8BoI9Kg8WiFrbP3vYDjqzu8Hyn-38G_XrXrAD6pH6wgxltObIlFQ"/>
+                        <div class="absolute bottom-4 right-4 glass-pill p-3 rounded-xl animate-float">
+                            <span class="material-symbols-outlined text-white">map</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Module 2: Scholarship Hunting -->
+            <div class="glass-premium rounded-[24px] p-lg flex flex-col relative overflow-hidden group stagger-2 items-center text-center justify-center" style="animation-delay: 0.2s;">
+                <div class="light-leak -bottom-20 -right-20" style="background: radial-gradient(circle, rgba(0, 91, 191, 0.2) 0%, transparent 80%); width: 400px; height: 400px;"></div>
+                <div class="flex items-start mb-md justify-center w-full relative">
+                    <span class="material-symbols-outlined text-tertiary text-[40px] icon-glow transition-transform group-hover:scale-110 duration-500 icon-float" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+                    <div class="bg-tertiary-fixed text-on-tertiary-fixed font-bold text-[10px] px-2 py-1 rounded-full shadow-lg shadow-tertiary/20 animate-bounce absolute -top-2 -right-2">+$10k AVG.</div>
+                </div>
+                <h3 class="font-h3 text-h3 tracking-[-0.02em] text-[#1e293b] mb-sm">Scholarship Hunting</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant">Uncover hidden funding and master the 'Golden Ticket' application to minimize financial burden.</p>
+                <div class="mt-lg flex flex-wrap gap-xs justify-center">
+                    <span class="glass-pill px-sm py-xs text-on-surface-variant font-caption text-caption rounded-md">Merit-Based</span>
+                    <span class="glass-pill px-sm py-xs text-on-surface-variant font-caption text-caption rounded-md">Need-Based</span>
+                </div>
+            </div>
+            <!-- Module 3: SOP Secrets -->
+            <div class="glass-premium rounded-[24px] p-lg flex flex-col justify-between group stagger-3" style="animation-delay: 0.3s;">
+                <div>
+                    <div class="flex justify-between items-start mb-md">
+                        <span class="material-symbols-outlined text-secondary text-[40px] icon-glow transition-transform group-hover:rotate-12 duration-500 icon-float">edit_document</span>
+                        <div class="flex text-[#F59E0B] glass-pill p-1 rounded-full">
+                            <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                            <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                            <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                            <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                            <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                        </div>
+                    </div>
+                    <h3 class="font-h3 text-h3 tracking-[-0.02em] text-[#1e293b] mb-sm">SOP Secrets</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant">Transform your Statement of Purpose with storytelling frameworks that captivate committees.</p>
+                </div>
+                <div class="mt-lg pt-md border-t border-outline-variant/20 flex items-center">
+                    <span class="material-symbols-outlined text-outline-variant mr-sm text-[18px]">draw</span>
+                    <span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Signature Framework</span>
+                </div>
+            </div>
+            <!-- Module 4: The Visa Blueprint -->
+            <div class="md:col-span-2 mesh-gradient-teal rounded-[24px] p-xl flex flex-col justify-center items-start text-white shadow-2xl relative overflow-hidden group stagger-4" style="animation-delay: 0.4s;">
+                <div class="absolute inset-0 bg-black/10"></div>
+                <div class="relative z-10 max-w-lg">
+                    <h3 class="font-h1 text-h1 text-white mb-md drop-shadow-xl">The Visa Blueprint</h3>
+                    <p class="font-body-lg text-body-lg text-white/90 mb-xl">Anticipate red flags before they appear. Our blueprint boasts an industry-leading success metric.</p>
+                    <div class="relative inline-flex items-center">
+                        <span class="absolute inset-0 rounded-2xl border-4 border-white/30 animate-[pulse-ring_2s_infinite]"></span>
+                        <div class="flex items-center px-lg py-md bg-white/10 backdrop-blur-2xl rounded-2xl border border-white/30 shadow-2xl">
+                            <span class="font-display text-[56px] leading-none font-black mr-sm tracking-tighter">98%</span>
+                            <span class="font-label-md text-label-md uppercase tracking-widest text-white/90 leading-tight">Approval<br/>Rate</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="absolute right-[-5%] bottom-[-10%] opacity-10 transform -rotate-12 transition-transform duration-1000 group-hover:translate-x-10 group-hover:-translate-y-10">
+                    <span class="material-symbols-outlined text-[300px]" style="font-variation-settings: 'FILL' 1;">flight_takeoff</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Neural Bridge Connector -->
+<div class="section-connector-v" style="margin-top: -80px; position: relative;"><div class="connector-glow"></div></div>
+
+<!-- Section 4: Comparison (The Cost of a Single Mistake) -->
+<section id="comparison" class="relative z-10 w-full py-32 px-6 bg-surface-bright mesh-bg overflow-hidden reveal">
+    <div class="absolute inset-0 grid-overlay opacity-30 pointer-events-none z-0"></div>
+    <div class="max-w-[1280px] mx-auto px-6 relative">
+        <!-- Urgency Hook -->
+        <div class="text-center mb-16 relative z-10">
+            <span class="inline-block bg-error-container text-on-error-container font-label-md text-label-md px-4 py-1.5 rounded-full mb-4 shadow-[0_4px_10px_rgba(0,0,0,0.05)]">
+                60 Minutes to Save 1 Year of Mistakes
+            </span>
+            <h2 class="font-h1 text-[32px] md:text-h1 text-on-surface mb-4 tracking-[-0.02em] leading-[1.2] md:leading-[1.1]">The Cost of a Single Mistake</h2>
+            <p class="font-body-lg text-body-md md:text-body-lg text-on-surface-variant max-w-2xl mx-auto px-2 leading-relaxed">
+                Navigating international education alone can lead to costly errors. See why expert guidance is your best investment.
+            </p>
+        </div>
+
+        <!-- Floating Icons (Desktop) -->
+        <div class="absolute -left-10 top-1/4 glass-icon w-16 h-16 rounded-2xl flex items-center justify-center floating hidden lg:flex z-20 text-blue-500">
+            <span class="material-symbols-outlined text-3xl">flight_takeoff</span>
+        </div>
+        <div class="absolute -right-10 bottom-1/4 glass-icon w-20 h-20 rounded-2xl flex items-center justify-center floating-delayed hidden lg:flex z-20 text-blue-500">
+            <span class="material-symbols-outlined text-4xl">school</span>
+        </div>
+
+        <!-- Bento Box Split Layout -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
+            <!-- Connection Line (Desktop) -->
+            <div class="hidden md:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-[2px] glow-line pointer-events-none z-20"></div>
+            
+            <!-- Left Side: The Pain -->
+            <div class="glass-dark-premium rounded-[24px] p-8 md:p-12 transition-all duration-500 relative group z-10 hover-tilt">
+                <h3 class="font-h2 text-white mb-10 tracking-tight text-2xl md:text-h2 border-b border-white/5 pb-6">The Risks of Going Solo</h3>
+                <ul class="space-y-8 md:space-y-12">
+                    <li class="flex items-start gap-6 group/item">
+                        <div class="w-14 h-14 rounded-2xl bg-amber-500/10 flex items-center justify-center shrink-0 border border-amber-500/20 pulse-amber transition-colors group-hover/item:bg-amber-500/20">
+                            <span class="material-symbols-outlined text-amber-500 text-2xl">error</span>
+                        </div>
+                        <div>
+                            <h4 class="font-h3 text-white mb-2 text-xl tracking-tight">Wrong course selection</h4>
+                            <p class="font-body-md text-slate-200/90 leading-relaxed">Choosing a program that doesn't align with your career goals, leading to wasted time and tuition.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-6 group/item">
+                        <div class="w-14 h-14 rounded-2xl bg-amber-500/10 flex items-center justify-center shrink-0 border border-amber-500/20 pulse-amber transition-colors group-hover/item:bg-amber-500/20">
+                            <span class="material-symbols-outlined text-amber-500 text-2xl">gavel</span>
+                        </div>
+                        <div>
+                            <h4 class="font-h3 text-white mb-2 text-xl tracking-tight">Visa rejection</h4>
+                            <p class="font-body-md text-slate-200/90 leading-relaxed">Minor paperwork errors or poor interview prep resulting in a denial and delayed intake.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-6 group/item">
+                        <div class="w-14 h-14 rounded-2xl bg-amber-500/10 flex items-center justify-center shrink-0 border border-amber-500/20 pulse-amber transition-colors group-hover/item:bg-amber-500/20">
+                            <span class="material-symbols-outlined text-amber-500 text-2xl">account_balance_wallet</span>
+                        </div>
+                        <div>
+                            <h4 class="font-h3 text-white mb-2 text-xl tracking-tight">Financial loss</h4>
+                            <p class="font-body-md text-slate-200/90 leading-relaxed">Missing out on crucial scholarships and paying full international fees unnecessarily.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Right Side: The Solution -->
+            <div class="card-aura-wrapper">
+                <div class="rounded-[24px] p-8 md:p-14 shadow-2xl transition-all duration-500 overflow-hidden relative group z-10 shimmer-glow-blue bg-gradient-to-br from-[#005bc0] via-[#004493] to-[#001a41] running-border" style="box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1), 0 20px 50px rgba(0, 44, 150, 0.3);">
+                    <div class="shimmer-overlay"></div>
+                    <h3 class="font-h1 text-white mb-10 tracking-tight text-3xl md:text-[40px] leading-tight">The Newstrides<br/>Roadmap</h3>
+                    <ul class="space-y-8 md:space-y-12 relative z-10">
+                        <li class="flex items-start gap-6 group/item transition-transform duration-300 hover:translate-x-2">
+                            <div class="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center shrink-0 backdrop-blur-md border border-white/20 shadow-lg">
+                                <span class="material-symbols-outlined text-white text-2xl" style="font-variation-settings: 'FILL' 1;">star</span>
+                            </div>
+                            <div>
+                                <h4 class="font-h3 text-white mb-2 text-xl font-bold">20+ years of expertise</h4>
+                                <p class="font-body-md text-blue-100/90 leading-relaxed max-w-sm">Leverage decades of insider knowledge to build a foolproof application strategy.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-6 group/item transition-transform duration-300 hover:translate-x-2">
+                            <div class="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center shrink-0 backdrop-blur-md border border-white/20 shadow-lg">
+                                <span class="material-symbols-outlined text-white text-2xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            </div>
+                            <div>
+                                <h4 class="font-h3 text-white mb-2 text-xl font-bold">98% visa success</h4>
+                                <p class="font-body-md text-blue-100/90 leading-relaxed max-w-sm">Our meticulous review process ensures your documentation is flawless before submission.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-6 group/item transition-transform duration-300 hover:translate-x-2">
+                            <div class="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center shrink-0 backdrop-blur-md border border-white/20 shadow-lg">
+                                <span class="material-symbols-outlined text-white text-2xl" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+                            </div>
+                            <div>
+                                <h4 class="font-h3 text-white mb-2 text-xl font-bold">Scholarship secrets</h4>
+                                <p class="font-body-md text-blue-100/90 leading-relaxed max-w-sm">Unlock access to hidden funding opportunities tailored to your unique profile.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-16 text-center relative z-10 reveal">
+            <a href="#registration-hub" class="inline-block bg-[#16a34a] text-white font-label-md text-lg px-10 py-5 rounded-[12px] shadow-[0_8px_20px_rgba(22,163,74,0.3)] hover:shadow-[0_10px_25px_rgba(22,163,74,0.4)] hover:-translate-y-1 transition-all duration-300 w-full sm:w-auto magnetic-btn text-center">
+                Secure Your Roadmap Now
+            </a>
+        </div>
+    </div>
+    <!-- Neural Bridge Connector -->
+    <div class="section-connector-v bottom-[-80px]"><div class="connector-glow"></div></div>
+</section>
+
+<!-- Section 5: Success Stories -->
+<section id="success" class="relative z-10 w-full py-xxl bg-[#0f1115] overflow-hidden dark reveal">
+    <!-- Global Background Gradients (Glowing Mesh) -->
+    <div class="absolute inset-0 pointer-events-none -z-10 overflow-hidden bg-[#0f1115]">
+        <div class="absolute top-[-10%] right-[-5%] w-[800px] h-[800px] rounded-full bg-blue-600/20 blur-[150px]"></div>
+        <div class="absolute bottom-[-10%] left-[-5%] w-[600px] h-[600px] rounded-full bg-purple-600/15 blur-[120px]"></div>
+        <div class="absolute top-[40%] left-[20%] w-[500px] h-[500px] rounded-full bg-indigo-500/15 blur-[100px]"></div>
+    </div>
+
+    <div class="max-w-container-max mx-auto px-gutter">
+        <!-- Section Header -->
+        <div class="mb-xl max-w-3xl">
+            <div class="flex items-center gap-2 mb-sm">
+                <span class="flex h-2 w-2 relative">
+                    <span class="absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75 animate-ping"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                </span>
+                <span class="font-label-md text-label-md text-blue-400 uppercase tracking-wider">Verified Outcomes</span>
+            </div>
+            <h2 class="font-display text-display text-white mb-md leading-tight">Global Futures <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Realized Here.</span></h2>
+            <p class="font-body-lg text-body-lg text-slate-200 max-w-2xl">Explore the aspirational journeys of our alumni. Realizing academic excellence across the world's elite institutions through precision guidance.</p>
+        </div>
+
+        <!-- Bento Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-lg auto-rows-[minmax(240px,auto)]">
+            <!-- Anchor Card (Large) -->
+            <div class="md:col-span-8 md:row-span-2 glass-panel rounded-2xl p-lg flex flex-col md:flex-row gap-lg relative overflow-hidden group" id="featured-testimonial">
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-purple-500"><div class="h-full bg-white/50 w-0 transition-none" id="testimonial-progress"></div></div>
+                <div class="w-full md:w-[45%] relative rounded-xl overflow-hidden shrink-0">
+                    <img alt="Elena Rodriguez portrait" class="w-full h-full object-cover min-h-[350px] transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJieAEHbjTaFUB3fm1119C8FwkzWr8bDcDp-pFw6hU1yvxjY3p6UElZl0ruR_MmwN2_manwNEr1NLAyK_XyuOGHCfMZc7Z5Jn0tzVJGONZz981qhjteblCMcDhaiogluCoMEXjAv_2fFWoAnLoqOPIhf7KryiS-SPzJIGWYMM6W23_bx1hUhRhwBHcfn1Wl6l7xgKklSKCgYsNZ4xvNLm19P1LKrk3oNXEE6oGowJ2RlIhrzvPaUtTtlJBqBg2RoySF01oabfn_LI"/>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <!-- Video Play Overlay -->
+                    <div class="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/40 transition-colors cursor-pointer group/play">
+                        <div class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center shadow-xl border border-white/30 group-hover/play:scale-110 transition-transform">
+                            <span class="material-symbols-outlined text-white text-3xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+                        </div>
+                    </div>
+                    <div class="absolute bottom-4 left-4 flex items-center gap-2 bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
+                        <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+                        <span class="font-caption text-caption text-white">Video Testimonial</span>
+                    </div>
+                </div>
+                <div class="flex flex-col justify-between py-sm w-full md:w-[55%]">
+                    <div>
+                        <span class="material-symbols-outlined text-blue-400 text-5xl mb-sm block opacity-50">format_quote</span>
+                        <p class="font-h3 text-h3 text-white mb-md leading-relaxed">"Navigating the complex requirements of top-tier universities was daunting until I found Newstrides. Their personalized roadmap was the key to my success."</p>
+                    </div>
+                    <div class="mt-8">
+                        <div class="flex items-center gap-sm mb-xs">
+                            <h4 class="font-h2 text-h2 text-white">Elena Rodriguez</h4>
+                            <span class="material-symbols-outlined text-blue-400" style="font-variation-settings: 'FILL' 1;">verified</span>
+                        </div>
+                        <p class="font-body-md text-body-md text-blue-200 font-medium">MSc Data Science, Univ. of Manchester</p>
+                        <div class="mt-md inline-flex px-4 py-2 bg-blue-500/10 border border-blue-500/30 rounded-lg backdrop-blur-sm">
+                            <span class="font-label-md text-label-md text-blue-300">Full Tuition Fellowship Secured</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Secondary Card 1 -->
+            <div class="md:col-span-4 md:row-span-1 glass-panel rounded-2xl p-lg flex flex-col justify-between" id="rotating-testimonial-card">
+                <div class="flex items-start justify-between mb-md transition-opacity duration-500" id="testimonial-header">
+                    <img alt="Elena Rodriguez portrait" class="w-16 h-16 rounded-full object-cover border-2 border-white/20 shadow-lg" id="testimonial-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJieAEHbjTaFUB3fm1119C8FwkzWr8bDcDp-pFw6hU1yvxjY3p6UElZl0ruR_MmwN2_manwNEr1NLAyK_XyuOGHCfMZc7Z5Jn0tzVJGONZz981qhjteblCMcDhaiogluCoMEXjAv_2fFWoAnLoqOPIhf7KryiS-SPzJIGWYMM6W23_bx1hUhRhwBHcfn1Wl6l7xgKklSKCgYsNZ4xvNLm19P1LKrk3oNXEE6oGowJ2RlIhrzvPaUtTtlJBqBg2RoySF01oabfn_LI"/>
+                    <div class="bg-white/5 border border-white/10 p-2.5 rounded-xl backdrop-blur-sm">
+                        <span class="material-symbols-outlined text-purple-400" style="font-variation-settings: 'FILL' 1;">school</span>
+                    </div>
+                </div>
+                <p class="font-body-md text-body-md text-white italic mb-md leading-relaxed transition-opacity duration-500" id="testimonial-quote">"Navigating the complex requirements of top-tier universities was daunting until I found Newstrides. Their personalized roadmap was the key to my success."</p>
+                <div class="mt-auto transition-opacity duration-500" id="testimonial-footer">
+                    <h5 class="font-label-md text-label-md text-white text-lg" id="testimonial-name">Elena Rodriguez</h5>
+                    <p class="font-caption text-caption text-slate-300 uppercase tracking-wider mt-1" id="testimonial-details">MSc Data Science, Univ. of Manchester • Full Tuition Fellowship</p>
+                </div>
+            </div>
+
+            <!-- Secondary Card 2 -->
+            <div class="md:col-span-4 md:row-span-1 glass-panel rounded-2xl p-lg relative overflow-hidden bg-gradient-to-br from-blue-900/80 to-purple-900/80 border-blue-500/30">
+                <div class="absolute -right-12 -top-12 w-40 h-40 bg-blue-500/30 rounded-full blur-3xl"></div>
+                <div class="absolute -bottom-8 -left-8 w-32 h-32 bg-purple-500/20 rounded-full blur-2xl"></div>
+                <div class="relative z-10 flex flex-col h-full justify-between">
+                    <div class="flex items-center gap-sm mb-md inline-flex bg-white/10 px-3 py-1.5 rounded-full border border-white/10 w-fit backdrop-blur-sm">
+                        <span class="material-symbols-outlined text-green-400 text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                        <span class="font-caption text-caption text-white tracking-widest uppercase font-bold">100% Success Rate</span>
+                    </div>
+                    <div>
+                        <h3 class="font-h2 text-h2 text-white mb-2">Top 50 Global Universities</h3>
+                        <p class="font-body-md text-body-md text-blue-100/80">Our elite cohort consistently secures placements in the world's most prestigious academic programs.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Horizontal Card -->
+            <div class="md:col-span-8 md:row-span-1 glass-panel rounded-2xl p-lg flex items-center justify-between gap-xl">
+                <div class="flex-grow">
+                    <div class="flex items-center gap-sm mb-sm">
+                        <span class="font-label-md text-label-md text-blue-400">Verified Success</span>
+                        <span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>
+                        <span class="font-caption text-caption text-slate-400">Class of 2023</span>
+                    </div>
+                    <div class="transition-opacity duration-500 opacity-100" id="rotating-horizontal-container">
+                        <p class="font-body-lg text-body-lg text-white font-medium leading-relaxed" id="horizontal-quote">"Their visa and pre-departure support is unmatched. True end-to-end premium service."</p>
+                        <div class="mt-6 flex items-center justify-between">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-full overflow-hidden shadow-lg border border-white/20">
+                                    <img alt="Student Profile" class="w-full h-full object-cover" id="horizontal-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJieAEHbjTaFUB3fm1119C8FwkzWr8bDcDp-pFw6hU1yvxjY3p6UElZl0ruR_MmwN2_manwNEr1NLAyK_XyuOGHCfMZc7Z5Jn0tzVJGONZz981qhjteblCMcDhaiogluCoMEXjAv_2fFWoAnLoqOPIhf7KryiS-SPzJIGWYMM6W23_bx1hUhRhwBHcfn1Wl6l7xgKklSKCgYsNZ4xvNLm19P1LKrk3oNXEE6oGowJ2RlIhrzvPaUtTtlJBqBg2RoySF01oabfn_LI"/>
+                                </div>
+                                <div>
+                                    <div class="flex items-center gap-1.5">
+                                        <span class="block font-label-md text-label-md text-white" id="horizontal-name">Priya A.</span>
+                                        <span class="material-symbols-outlined text-blue-400 text-sm" style="font-variation-settings: 'FILL' 1;">verified</span>
+                                    </div>
+                                    <span class="block font-caption text-caption text-slate-400" id="horizontal-school">Columbia University</span>
+                                </div>
+                            </div>
+                            <div class="px-3 py-1 bg-white/5 border border-white/10 rounded-full">
+                                <span class="font-caption text-blue-300 font-bold uppercase tracking-tight" id="horizontal-success">Accepted: Columbia MS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden md:flex shrink-0 w-32 h-32 bg-white/5 rounded-2xl items-center justify-center border border-white/10 backdrop-blur-sm relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent"></div>
+                    <span class="material-symbols-outlined text-slate-300 text-5xl relative z-10">account_balance</span>
+                </div>
+            </div>
+
+            <!-- Stats Card -->
+            <div class="md:col-span-4 md:row-span-1 glass-panel rounded-2xl p-lg flex flex-col justify-center items-center text-center relative overflow-hidden group">
+                <div class="absolute inset-0 bg-gradient-to-t from-blue-500/5 to-transparent"></div>
+                <span class="font-display text-display text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400 block mb-2 group-hover:scale-110 transition-transform duration-500">85<span class="text-h2 text-blue-500">+</span></span>
+                <span class="font-label-md text-label-md text-white uppercase tracking-widest mt-2">Partner Institutions</span>
+                <p class="font-caption text-caption text-slate-300 mt-3 max-w-[200px]">Direct access to global excellence networks.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Section 7: Global Education Roadmap (Bento Grid) -->
+<section id="global-roadmap" class="relative z-10 w-full py-32 px-6 mesh-gradient-animated overflow-hidden reveal">
+    <div class="max-w-container-max mx-auto px-6 relative">
+        <!-- Headline Section -->
+        <header class="max-w-3xl mb-16">
+            <h2 class="font-display text-4xl md:text-display text-on-surface tracking-tighter mb-6">
+                A Roadmap Designed for Your Success.
+            </h2>
+            <p class="font-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
+                Navigate the complexities of global education with our precision-engineered framework. Real-time data meets expert guidance to illuminate your path.
+            </p>
+        </header>
+
+        <!-- Bento Grid Section -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-lg auto-rows-auto md:auto-rows-[200px] gap-y-8">
+            <!-- Main Featured Card: Interactive Expert Roadmap -->
+            <div class="md:col-span-8 md:row-span-2 glass-card-interactive rounded-xl p-xl flex flex-col justify-between relative overflow-hidden group min-h-[400px] md:min-h-0">
+                <div class="relative z-10">
+                    <span class="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-caption font-bold mb-md">PREMIUM ACCESS</span>
+                    <h3 class="font-h2 text-3xl md:text-h2 text-on-surface mb-md">Interactive Expert Roadmap</h3>
+                    <p class="text-on-surface-variant max-w-md">Our algorithm-driven platform creates a bespoke timeline based on your unique profile, academic history, and career aspirations.</p>
+                </div>
+                <div class="mt-xl flex items-center gap-lg">
+                    <button class="px-6 py-3 bg-primary text-white rounded-xl font-semibold shadow-md hover:shadow-xl transition-all">Explore Roadmap</button>
+                    <div class="flex -space-x-3">
+                        <div class="w-10 h-10 rounded-full border-2 border-white bg-slate-200"></div>
+                        <div class="w-10 h-10 rounded-full border-2 border-white bg-slate-300"></div>
+                        <div class="w-10 h-10 rounded-full border-2 border-white bg-slate-400"></div>
+                    </div>
+                </div>
+                <!-- Floating 3D Asset -->
+                <div class="absolute -right-8 top-1/2 -translate-y-1/2 opacity-10 group-hover:opacity-20 transition-opacity pointer-events-none">
+                    <span class="material-symbols-outlined text-[180px] text-primary rotate-12">menu_book</span>
+                </div>
+            </div>
+
+            <!-- Card: Scholarship Secrets -->
+            <div class="md:col-span-4 md:row-span-1 glass-card-interactive rounded-xl p-lg flex flex-col justify-center relative overflow-hidden group">
+                <div class="flex items-center gap-md mb-sm">
+                    <div class="w-10 h-10 rounded-lg bg-tertiary/10 flex items-center justify-center text-tertiary">
+                        <span class="material-symbols-outlined">savings</span>
+                    </div>
+                    <h3 class="font-h3 text-xl font-bold text-on-surface">Scholarship Secrets</h3>
+                </div>
+                <p class="text-on-surface-variant text-body-md">Unlocking $4.2M in annual funding opportunities for students.</p>
+            </div>
+
+            <!-- Card: Live Success Stories -->
+            <div class="md:col-span-4 md:row-span-2 glass-card-interactive rounded-xl p-lg relative overflow-hidden group">
+                <div class="h-full flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-h3 text-xl font-bold text-on-surface mb-sm">Live Success Stories</h3>
+                        <p class="text-on-surface-variant text-body-md mb-lg">Real journeys from Newstrides alumni now thriving abroad.</p>
+                    </div>
+                    <div class="rounded-xl overflow-hidden border border-white/40 shadow-inner h-48">
+                        <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqDpxHd5PPMWQVGTeoj-1zsyfzn5J3Bxu9DZH8yXK01wmw9YCLFg9SZCOlFABsEUMGGDY-zvlGIyMo5SJZ80qPnWqYo5I1aa1BrokmC43rJYRGF9Iz2REBBR_BLYKcvrxPlNT_e0IlhgnGiZmTSTQTMbHujj20Z4HjNX2d9Crm0YftMy5lHuYGWvf6O2xdW9MDJGb_q5diiJA6WbBVU3rJS6l8O3jC8P_gLdCgZ4IA1eoWb8YANmyllNQWrQ6NKEvK63y8BzfoXZQ"/>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card: Application Checklist -->
+            <div class="md:col-span-4 md:row-span-1 glass-card-interactive rounded-xl p-lg flex items-center justify-between group">
+                <div>
+                    <h3 class="font-h3 text-lg font-bold text-on-surface mb-xs">Application Checklist</h3>
+                    <p class="text-on-surface-variant text-caption">Never miss a deadline again.</p>
+                </div>
+                <div class="w-12 h-12 rounded-full border-2 border-primary/20 flex items-center justify-center text-primary">
+                    <span class="material-symbols-outlined">fact_check</span>
+                </div>
+            </div>
+
+            <!-- Card: Live Q&A -->
+            <div class="md:col-span-4 md:row-span-1 glass-card-interactive rounded-xl p-lg flex flex-col justify-center relative overflow-hidden group">
+                <div class="flex items-center gap-md">
+                    <div class="relative">
+                        <div class="w-3 h-3 bg-red-500 rounded-full absolute -top-1 -right-1 animate-pulse"></div>
+                        <span class="material-symbols-outlined text-secondary text-3xl">record_voice_over</span>
+                    </div>
+                    <div>
+                        <h3 class="font-h3 text-lg font-bold text-on-surface">Live Q&A</h3>
+                        <p class="text-on-surface-variant text-caption">Happening every Tuesday</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom CTA Section -->
+        <div class="mt-32 flex flex-col items-center text-center space-y-8">
+            <div class="w-1 h-20 bg-gradient-to-b from-primary to-transparent"></div>
+            <h2 class="font-h2 text-3xl md:text-h2 text-on-surface max-w-xl reveal">Ready to take the first step towards your global future?</h2>
+            <div class="flex flex-wrap justify-center gap-6 reveal">
+                <a href="#registration-hub" class="px-8 py-4 bg-[#16a34a] text-white rounded-xl font-bold shadow-xl hover:brightness-105 active:scale-95 transition-all magnetic-btn text-center">Book Free Consultation</a>
+                <a href="#blueprint" class="px-8 py-4 bg-white border border-slate-200 text-primary rounded-xl font-bold hover:bg-slate-50 active:scale-95 transition-all magnetic-btn text-center">View All Programs</a>
+            </div>
+        </div>
+    </div>
+    <!-- Bottom Connector -->
+    <div class="section-connector-v bottom-0"><div class="connector-glow"></div></div>
+    <!-- Neural Bridge Connector -->
+    <div class="section-connector-v bottom-[-80px]"><div class="connector-glow"></div></div>
+</section>
+
+<!-- Section 8: Evidence Vault (Real Student Results) -->
+<section id="evidence-vault" class="max-w-container-max mx-auto px-6 md:px-12 premium-vault-bg py-32 rounded-[40px] my-16 overflow-hidden relative reveal">
+    <div class="tech-grid-overlay"></div>
+    <div class="mb-16 text-center md:text-left max-w-3xl animate-slide-down-fade">
+        <h2 class="font-h1 text-4xl md:text-h1 text-on-background mb-6">Evidence Vault</h2>
+        <p class="font-body-lg text-on-surface-variant leading-relaxed">
+            Verifiable success artifacts from our recent global placements. We don't just promise results; we document the journey with precision.
+        </p>
+    </div>
+
+    <!-- 3-Column Grid / Mobile Carousel -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-lg overflow-x-auto snap-x snap-mandatory scroll-smooth hide-scrollbar pb-lg mobile-carousel">
+        <!-- Card 1: Admission Artifact (Oxford Letter) -->
+        <article class="relative flex flex-col bg-surface-container-lowest rounded-xl border border-surface-variant shadow-[0_4px_24px_-4px_rgba(0,0,0,0.05)] overflow-hidden group hover:shadow-[0_8px_32px_-4px_rgba(0,0,0,0.08)] transition-all duration-300 glass-artifact-card snap-center shrink-0 w-[85vw] md:w-auto animate-pop-in">
+            <div class="p-lg bg-paper-texture flex-grow relative border-b border-surface-variant">
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.03] pointer-events-none flex flex-col items-center justify-center">
+                    <span class="material-symbols-outlined text-[120px]">verified</span>
+                    <span class="font-h3 text-h3 text-center mt-sm uppercase tracking-widest">Verified</span>
+                </div>
+                <div class="flex items-start justify-between mb-8 relative z-10">
+                    <div>
+                        <h3 class="font-label-md text-xs text-slate-400 uppercase tracking-wider mb-1">Unconditional Offer</h3>
+                        <p class="font-h3 text-xl font-bold text-on-surface">University of Oxford</p>
+                    </div>
+                    <div class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center text-primary">
+                        <span class="material-symbols-outlined">school</span>
+                    </div>
+                </div>
+                <div class="font-mono text-[11px] leading-relaxed text-on-surface-variant space-y-2 relative z-10">
+                    <div class="flex justify-between border-b border-slate-100 pb-2">
+                        <span>APPLICANT_ID</span>
+                        <span class="text-on-surface"><span class="blur-[4px] select-none bg-slate-100 px-1 rounded">OXF-2024-8842</span></span>
+                    </div>
+                    <div class="flex justify-between border-b border-slate-100 pb-2">
+                        <span>PROGRAMME</span>
+                        <span class="text-on-surface">MSc Advanced CS</span>
+                    </div>
+                    <div class="flex justify-between border-b border-slate-100 pb-2">
+                        <span>STATUS</span>
+                        <span class="text-success font-bold">CONFIRMED</span>
+                    </div>
+                </div>
+                <div class="mt-8 pt-4 border-t border-slate-100 flex items-center space-x-2 relative z-10">
+                    <span class="material-symbols-outlined text-success text-[16px]">verified_user</span>
+                    <span class="font-caption text-xs text-success">Verified by University Systems</span>
+                </div>
+            </div>
+            <div class="p-4 bg-white flex justify-between items-center">
+                <span class="text-[10px] text-slate-400">Artifact ID: #A992-UK</span>
+                <button class="text-xs font-bold text-primary flex items-center gap-1 hover:gap-2 transition-all">
+                    View Full Doc <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                </button>
+            </div>
+        </article>
+
+        <!-- Card 2: Visa Artifact (US F-1) -->
+        <article class="relative flex flex-col bg-surface-container-lowest rounded-xl border border-surface-variant shadow-[0_4px_24px_-4px_rgba(0,0,0,0.05)] overflow-hidden group hover:shadow-[0_8px_32px_-4px_rgba(0,0,0,0.08)] transition-all duration-300 glass-artifact-card snap-center shrink-0 w-[85vw] md:w-auto animate-pop-in" style="animation-delay: 0.1s;">
+            <div class="p-lg bg-white flex-grow relative border-b border-surface-variant">
+                <div class="absolute top-4 right-4 w-24 h-24 border-2 border-primary/20 rounded-full flex flex-col items-center justify-center rotate-12 opacity-80 pointer-events-none">
+                    <span class="font-mono text-[8px] text-primary/60 tracking-tighter uppercase">US Dept of State</span>
+                    <span class="font-h3 text-2xl text-primary/60 font-bold">F-1</span>
+                    <span class="font-mono text-[8px] text-primary/60">APPROVED</span>
+                </div>
+                <div class="flex items-start justify-between mb-8 relative z-10">
+                    <div>
+                        <h3 class="font-label-md text-xs text-slate-400 uppercase tracking-wider mb-1">Visa Granted</h3>
+                        <p class="font-h3 text-xl font-bold text-on-surface">US Student Visa (F-1)</p>
+                    </div>
+                </div>
+                <div class="mb-6 relative z-10">
+                    <div class="flex justify-between items-end mb-2">
+                        <span class="text-xs text-slate-500">Processing Speed</span>
+                        <span class="text-xs font-bold text-primary">14 Days</span>
+                    </div>
+                    <div class="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
+                        <div class="h-full bg-primary w-full animate-shimmer"></div>
+                    </div>
+                </div>
+                <div class="space-y-3 relative z-10">
+                    <div class="flex items-center justify-between text-xs">
+                        <span class="text-slate-500">I-20 Received</span>
+                        <span class="font-mono text-slate-400">Oct 12</span>
+                    </div>
+                    <div class="flex items-center justify-between text-xs">
+                        <span class="text-slate-500">Interview Passed</span>
+                        <span class="font-mono text-slate-400">Oct 24</span>
+                    </div>
+                    <div class="flex items-center justify-between text-xs font-bold text-primary">
+                        <span>Passport Returned</span>
+                        <span class="font-mono">Oct 26</span>
+                    </div>
+                </div>
+            </div>
+            <div class="p-4 bg-white flex justify-between items-center">
+                <span class="text-[10px] text-slate-400">Artifact ID: #V712-US</span>
+                <button class="text-xs font-bold text-primary flex items-center gap-1 hover:gap-2 transition-all">
+                    Timeline Details <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                </button>
+            </div>
+        </article>
+
+        <!-- Card 3: Journey Artifact (Logistics Map) -->
+        <article class="relative flex flex-col bg-surface-container-lowest rounded-xl border border-surface-variant shadow-[0_4px_24px_-4px_rgba(0,0,0,0.05)] overflow-hidden group hover:shadow-[0_8px_32px_-4px_rgba(0,0,0,0.08)] transition-all duration-300 glass-artifact-card snap-center shrink-0 w-[85vw] md:w-auto animate-pop-in" style="animation-delay: 0.2s;">
+            <div class="p-lg bg-white flex-grow relative border-b border-surface-variant">
+                <div class="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] bg-[size:16px_16px] opacity-30 pointer-events-none"></div>
+                <div class="flex items-start justify-between mb-8 relative z-10">
+                    <div>
+                        <h3 class="font-label-md text-xs text-slate-400 uppercase tracking-wider mb-1">Application Journey</h3>
+                        <p class="font-h3 text-xl font-bold text-on-surface">End-to-End Logistics</p>
+                    </div>
+                    <div class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center text-primary">
+                        <span class="material-symbols-outlined">route</span>
+                    </div>
+                </div>
+                <div class="relative z-10 pl-6 mt-4 border-l border-dashed border-slate-200 space-y-6">
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1.5 w-2.5 h-2.5 rounded-full bg-slate-200 border-2 border-white"></div>
+                        <div class="text-[10px] font-mono text-slate-400 mb-1">T-Minus 90 Days</div>
+                        <div class="text-sm font-bold text-on-surface">Profile Optimization</div>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1.5 w-2.5 h-2.5 rounded-full bg-slate-200 border-2 border-white"></div>
+                        <div class="text-[10px] font-mono text-slate-400 mb-1">T-Minus 45 Days</div>
+                        <div class="text-sm font-bold text-on-surface">Priority Submission</div>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute -left-[33px] top-1.5 w-3.5 h-3.5 rounded-full bg-success border-2 border-white shadow-sm"></div>
+                        <div class="text-[10px] font-mono text-success mb-1">T-Zero</div>
+                        <div class="text-sm font-bold text-on-surface">Offer Secured</div>
+                    </div>
+                </div>
+            </div>
+            <div class="p-4 bg-white flex justify-between items-center">
+                <span class="text-[10px] text-slate-400">Artifact ID: #J304-GLOBAL</span>
+                <button class="text-xs font-bold text-primary flex items-center gap-1 hover:gap-2 transition-all">
+                    Map Journey <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                </button>
+            </div>
+        </article>
+    </div>
+
+    <!-- Mobile Navigation Dots -->
+    <div class="md:hidden flex justify-center items-center space-x-2 mt-8" id="vault-dots">
+        <div class="w-2.5 h-2.5 rounded-full bg-primary transition-all"></div>
+        <div class="w-2 h-2 rounded-full bg-slate-200 transition-all"></div>
+        <div class="w-2 h-2 rounded-full bg-slate-200 transition-all"></div>
+    </div>
+</section>
+
+    <!-- Neural Bridge Connector -->
+    <div class="section-connector-v bottom-[-80px]"><div class="connector-glow"></div></div>
+</section>
+
+<!-- Section 9: Expert Profile (Blueprint Mesh) -->
+<section id="expert-profile" class="relative z-10 w-full py-xxl mesh-bg overflow-hidden reveal">
+    <div class="absolute inset-0 blueprint-grid-overlay opacity-60 z-0"></div>
+    <div class="max-w-container-max mx-auto px-6 relative z-10">
+        <!-- Header Section -->
+        <header class="mb-xl border-b border-outline-variant/20 pb-lg relative">
+            <div class="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-primary/50 to-transparent rounded-full blur-sm opacity-50"></div>
+            <div class="monospaced text-xs text-primary mb-sm tracking-widest uppercase opacity-90 flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                SYS.EXPERT.PROFILE // ID: 8942-A
+            </div>
+            <h1 class="font-display text-4xl md:text-5xl text-on-background mb-md bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-600">
+                Dr. Alistair Vance
+            </h1>
+            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                Lead Educational Architect & Senior Consultant. Specializing in highly technical admission strategies for elite STEM programs globally.
+            </p>
+        </header>
+
+        <!-- Bento Grid Layout -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter perspective-container">
+            <!-- Logic Flow Left Column -->
+            <div class="lg:col-span-7 relative order-2 lg:order-1">
+                <!-- Vertical Line -->
+                <div class="absolute left-[15px] top-4 bottom-4 w-px bg-gradient-to-b from-primary/30 via-outline-variant/30 to-transparent z-0"></div>
+                <!-- Pillars -->
+                <div class="space-y-lg relative z-10 pt-4 lg:pt-0">
+                    <!-- Pillar 1 -->
+                    <div class="flex gap-lg items-start group">
+                        <div class="w-8 h-8 rounded-lg border border-white/60 bg-white/40 backdrop-blur-sm flex items-center justify-center shrink-0 mt-1 relative z-10 shadow-[0_4px_12px_rgba(0,91,191,0.15)] group-hover:scale-110 transition-transform duration-300">
+                            <span class="material-symbols-outlined text-primary text-sm">timeline</span>
+                        </div>
+                        <div class="glass-card p-md rounded-xl flex-1 relative overflow-hidden">
+                            <div class="premium-halo opacity-50"></div><div class="absolute top-0 right-0 p-4 opacity-5 tech-markings w-32 h-32 rounded-bl-full"></div>
+                            <div class="absolute top-0 right-0 p-2 opacity-10 transform translate-z-10">
+                                <span class="material-symbols-outlined text-4xl">domain</span>
+                            </div>
+                            <div class="monospaced text-[10px] text-primary/70 mb-1 uppercase font-semibold">Metric_01: Tenure</div>
+                            <h3 class="font-h3 text-h3 text-slate-800 mb-sm">15+ Years Global Experience</h3>
+                            <p class="font-body-md text-body-md text-slate-600 mb-md relative z-10">
+                                Engineered admission pathways across North America, Europe, and Asia. Developed proprietary predictive models for university acceptance rates based on historical data.
+                            </p>
+                            <div class="flex flex-wrap gap-sm relative z-10">
+                                <span class="inline-flex items-center border border-white/50 text-slate-700 monospaced text-xs px-3 py-1.5 rounded-md bg-white/40 backdrop-blur-sm shadow-sm hover:bg-white/60 transition-colors">
+                                    Harvard
+                                </span>
+                                <span class="inline-flex items-center border border-white/50 text-slate-700 monospaced text-xs px-3 py-1.5 rounded-md bg-white/40 backdrop-blur-sm shadow-sm hover:bg-white/60 transition-colors">
+                                    MIT
+                                </span>
+                                <span class="inline-flex items-center border border-white/50 text-slate-700 monospaced text-xs px-3 py-1.5 rounded-md bg-white/40 backdrop-blur-sm shadow-sm hover:bg-white/60 transition-colors">
+                                    Stanford
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Pillar 2 -->
+                    <div class="flex gap-lg items-start group">
+                        <div class="w-8 h-8 rounded-lg border border-white/60 bg-white/40 backdrop-blur-sm flex items-center justify-center shrink-0 mt-1 relative z-10 shadow-[0_4px_12px_rgba(0,91,191,0.15)] group-hover:scale-110 transition-transform duration-300">
+                            <span class="material-symbols-outlined text-primary text-sm">handshake</span>
+                        </div>
+                        <div class="glass-card p-md rounded-xl flex-1 relative overflow-hidden">
+                            <div class="premium-halo opacity-50"></div><div class="absolute top-0 right-0 p-4 opacity-5 tech-markings w-32 h-32 rounded-bl-full"></div>
+                            <div class="absolute top-0 right-0 p-2 opacity-10 transform translate-z-10">
+                                <span class="material-symbols-outlined text-4xl">account_tree</span>
+                            </div>
+                            <div class="monospaced text-[10px] text-primary/70 mb-1 uppercase font-semibold">Metric_02: Partnerships</div>
+                            <h3 class="font-h3 text-h3 text-slate-800 mb-sm">50+ Institutional Alliances</h3>
+                            <p class="font-body-md text-body-md text-slate-600 mb-md relative z-10">
+                                Established direct communication protocols with admission directors at top-tier engineering and computer science faculties worldwide.
+                            </p>
+                            <div class="inline-flex items-center gap-2 border border-primary/20 bg-primary/5 backdrop-blur-md px-4 py-2 rounded-md shadow-inner relative z-10">
+                                <span class="material-symbols-outlined text-primary text-sm">verified</span>
+                                <span class="font-label-md text-label-md text-primary">Direct Tier-1 Access</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Pillar 3 -->
+                    <div class="flex gap-lg items-start group">
+                        <div class="w-8 h-8 rounded-lg border border-white/60 bg-white/40 backdrop-blur-sm flex items-center justify-center shrink-0 mt-1 relative z-10 shadow-[0_4px_12px_rgba(0,91,191,0.15)] group-hover:scale-110 transition-transform duration-300">
+                            <span class="material-symbols-outlined text-primary text-sm">trending_up</span>
+                        </div>
+                        <div class="glass-card p-md rounded-xl flex-1 relative overflow-hidden">
+                            <div class="premium-halo opacity-50"></div><div class="absolute top-0 right-0 p-4 opacity-5 tech-markings w-32 h-32 rounded-bl-full"></div>
+                            <div class="absolute top-0 right-0 p-2 opacity-10 transform translate-z-10">
+                                <span class="material-symbols-outlined text-4xl">insert_chart</span>
+                            </div>
+                            <div class="monospaced text-[10px] text-primary/70 mb-1 uppercase font-semibold">Metric_03: Success Rate</div>
+                            <h3 class="font-h3 text-h3 text-slate-800 mb-sm">98.5% Placement Accuracy</h3>
+                            <p class="font-body-md text-body-md text-slate-600 mb-md relative z-10">
+                                Consistent track record of matching student profiles to target institutions using multi-variable analysis and rigorous application optimization.
+                            </p>
+                            <div class="flex gap-md relative z-10">
+                                <div class="border-l-2 border-primary/50 pl-4 bg-white/20 backdrop-blur-sm py-1 pr-4 rounded-r-md">
+                                    <div class="monospaced text-2xl text-slate-800 font-semibold">500+</div>
+                                    <div class="font-caption text-caption text-slate-500 uppercase tracking-wider text-[10px]">Students Placed</div>
+                                </div>
+                                <div class="border-l-2 border-green-500/50 pl-4 bg-white/20 backdrop-blur-sm py-1 pr-4 rounded-r-md">
+                                    <div class="monospaced text-2xl text-green-600 font-semibold">$2M+</div>
+                                    <div class="font-caption text-caption text-slate-500 uppercase tracking-wider text-[10px]">Scholarships Secured</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Portrait Right Column -->
+            <div class="lg:col-span-5 h-full order-1 lg:order-2 mb-8 lg:mb-0">
+                <div class="sticky top-[100px]">
+                    <div class="relative group perspective-container">
+                        <!-- Atmospheric Glow -->
+                        <div class="absolute -inset-10 bg-primary/10 blur-[100px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-1000 z-0"></div>
+                        <!-- Technical Frame -->
+                        <div class="absolute -inset-2 border border-white/50 rounded-xl z-0 bg-white/10 backdrop-blur-sm shadow-[0_8px_32px_rgba(0,0,0,0.05)] transform transition-transform duration-500 group-hover:scale-[1.03]">
+                            <!-- Corner markers -->
+                            <div class="absolute -top-1 -left-1 w-2 h-2 bg-primary/80 rounded-full shadow-[0_0_10px_rgba(0,91,191,0.5)]"></div>
+                            <div class="absolute -top-1 -right-1 w-2 h-2 bg-primary/80 rounded-full shadow-[0_0_10px_rgba(0,91,191,0.5)]"></div>
+                            <div class="absolute -bottom-1 -left-1 w-2 h-2 bg-primary/80 rounded-full shadow-[0_0_10px_rgba(0,91,191,0.5)]"></div>
+                            <div class="absolute -bottom-1 -right-1 w-2 h-2 bg-primary/80 rounded-full shadow-[0_0_10px_rgba(0,91,191,0.5)]"></div>
+                        </div>
+                        <div class="glass-card relative z-10 aspect-[3/4] overflow-hidden rounded-lg">
+                            <img alt="Expert Portrait" class="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-700 transform group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCDFGpg_-Ys7HkBRYBw9tJV7gm3kK1PAnfpZqBr_5SVcBw5nt3c9ARrw5sgL8mF_RJR4WuOjufvxVUrQ1qcb-g9F_JmpKAdeFmj38HOYGOT5_IYIwtPifS_vKOTptk_i2jM3Ww3pp_GVw9Ob73lKsErV15Mx8ta2dN41O-DHvCWiXiaHaHKZ-8cCuWfNRIzbFvXUP00FuwH5chI2xa3XzFOrCB712e5xADozfSFKYtuW0xm8FNMpT31GNe0fqE5D2j6NEPnu0DSds"/>
+                            <!-- Overlay HUD elements -->
+                            <div class="absolute top-4 right-4 bg-white/70 backdrop-blur-md border border-white px-3 py-1.5 flex items-center gap-2 rounded-md shadow-sm transform translate-z-20">
+                                <div class="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse shadow-[0_0_8px_#62df7d]"></div>
+                                <span class="monospaced text-[10px] text-slate-800 font-semibold tracking-wider">ONLINE_STATUS: ACTIVE</span>
+                            </div>
+                            <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-slate-900/90 via-slate-900/60 to-transparent p-6 pt-16 transform translate-z-20">
+                                <div class="flex gap-2 mb-3">
+                                    <span class="border border-white/20 bg-white/10 backdrop-blur-md px-2.5 py-1 rounded monospaced text-[10px] text-white/90 tracking-wider">ID: AL-VNC</span>
+                                    <span class="border border-white/20 bg-white/10 backdrop-blur-md px-2.5 py-1 rounded monospaced text-[10px] text-white/90 tracking-wider">LVL: SNR_EXEC</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Join Webinar Call -->
+        <div class="mt-xl flex flex-col items-center justify-center relative reveal">
+            <div class="absolute -top-12 left-1/2 -translate-x-1/2 w-64 h-64 bg-primary/5 blur-[80px] rounded-full -z-10"></div>
+            <a href="#registration-hub" class="relative group px-10 py-5 bg-[#16a34a] hover:bg-[#15803d] text-white rounded-xl shadow-[0_10px_30px_-10px_rgba(22,163,74,0.4)] hover:shadow-[0_20px_40px_-12px_rgba(22,163,74,0.5)] transition-all duration-500 hover:-translate-y-1 active:scale-95 flex items-center gap-3 overflow-hidden border border-white/20 magnetic-btn text-center">
+                <div class="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-[250%] transition-transform duration-1000"></div>
+                <span class="material-symbols-outlined text-2xl group-hover:rotate-12 transition-transform">video_call</span>
+                <span class="font-h3 text-xl tracking-tight">Join the Webinar</span>
+            </a>
+            <p class="mt-md font-caption text-slate-500 monospaced text-[10px] uppercase tracking-[0.2em] opacity-70">
+                Limited Seats Available • Next Session: Live Now
+            </p>
+        </div>
+    </div>
+</section>
+
+</section>
+
+<!-- Section 10: Premium FAQ -->
+<section id="faq" class="w-full py-32 faq-mesh-bg relative overflow-hidden">
+    <div class="max-w-[1280px] mx-auto px-8 relative z-10">
+        <!-- Header Section -->
+        <div class="text-center max-w-4xl mx-auto mb-20 relative">
+            <!-- Floating Trust Elements -->
+            <div class="absolute -top-8 -left-4 bg-white/80 backdrop-blur-sm border border-white rounded-full px-4 py-2 flex items-center shadow-sm">
+                <div class="w-2 h-2 rounded-full bg-green-500 status-pulse mr-2"></div>
+                <span class="text-xs font-semibold text-slate-700">Live Support Online</span>
+            </div>
+            <div class="absolute top-4 -right-8 bg-white/80 backdrop-blur-sm border border-white rounded-full px-4 py-2 flex items-center shadow-sm">
+                <div class="flex text-yellow-400 mr-2">
+                    <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+                    <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+                </div>
+                <span class="text-xs font-semibold text-slate-700">4.9/5 Student Rating</span>
+            </div>
+            <h2 class="font-display text-5xl md:text-6xl font-black text-slate-900 tracking-tight mb-6 leading-tight">
+                Frequently Asked <br/>
+                <span class="text-gradient">Questions</span>
+            </h2>
+            <p class="font-body-lg text-xl text-slate-600 max-w-2xl mx-auto font-medium">Everything you need to know about our upcoming sessions. <span class="text-gradient font-bold">Clear Answers.</span></p>
+        </div>
+
+        <!-- 2-Column Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24 max-w-5xl mx-auto">
+            <!-- FAQ Item 1 -->
+            <div class="faq-card rounded-2xl overflow-hidden relative group p-8">
+                <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent pointer-events-none"></div>
+                <div class="flex justify-between items-start mb-4">
+                    <h3 class="font-h3 text-xl font-bold text-primary leading-tight">Is this webinar really free?</h3>
+                    <span class="material-symbols-outlined text-primary bg-primary/10 rounded-full p-1">keyboard_arrow_down</span>
+                </div>
+                <p class="text-slate-600 leading-relaxed">Yes, absolutely. We believe in providing upfront value. This session is sponsored by our partners, so there is no cost to attend.</p>
+            </div>
+            <!-- FAQ Item 2 -->
+            <div class="faq-card rounded-2xl overflow-hidden group p-8">
+                <div class="flex justify-between items-start mb-4">
+                    <h3 class="font-h3 text-xl font-bold text-slate-800 group-hover:text-primary transition-colors">What will I learn here?</h3>
+                    <span class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors bg-slate-100 group-hover:bg-primary/10 rounded-full p-1">keyboard_arrow_down</span>
+                </div>
+                <p class="text-slate-600 leading-relaxed">You'll learn the step-by-step strategy for university selection, scholarship applications, and visa processing from world-class experts.</p>
+            </div>
+            <!-- FAQ Item 3 -->
+            <div class="faq-card rounded-2xl overflow-hidden group p-8">
+                <div class="flex justify-between items-start mb-4">
+                    <h3 class="font-h3 text-xl font-bold text-slate-800 group-hover:text-primary transition-colors">What if I can't make it live?</h3>
+                    <span class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors bg-slate-100 group-hover:bg-primary/10 rounded-full p-1">keyboard_arrow_down</span>
+                </div>
+                <p class="text-slate-600 leading-relaxed">No worries. All registered participants will receive a high-definition recording of the session along with the presentation slides.</p>
+            </div>
+            <!-- FAQ Item 4 -->
+            <div class="faq-card rounded-2xl overflow-hidden group p-8">
+                <div class="flex justify-between items-start mb-4">
+                    <h3 class="font-h3 text-xl font-bold text-slate-800 group-hover:text-primary transition-colors">Who is presenting?</h3>
+                    <span class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors bg-slate-100 group-hover:bg-primary/10 rounded-full p-1">keyboard_arrow_down</span>
+                </div>
+                <p class="text-slate-600 leading-relaxed">The session is led by Dr. Alistair Vance and our team of senior educational consultants with over 15 years of placement experience.</p>
+            </div>
+        </div>
+
+        <!-- Final Push Card -->
+        <div class="max-w-4xl mx-auto">
+            <div class="high-gloss-card rounded-3xl p-10 flex flex-col sm:flex-row items-center justify-between relative overflow-hidden">
+                <div class="absolute -right-20 -top-20 w-64 h-64 bg-green-400/20 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="mb-8 sm:mb-0 text-center sm:text-left flex-1">
+                    <h3 class="font-h2 text-3xl font-bold text-slate-900 mb-3 tracking-tight">Still have a specific question?</h3>
+                    <p class="text-slate-600 flex items-center justify-center sm:justify-start">
+                        <span class="material-symbols-outlined text-green-600 mr-2">info</span>
+                        Ask it live in the webinar. <strong class="text-green-600 ml-2 bg-green-50 px-3 py-1 rounded-full text-sm font-bold border border-green-200">14 seats left</strong>
+                    </p>
+                </div>
+                <a href="#registration-hub" class="bg-[#16a34a] hover:bg-green-700 text-white font-bold text-lg px-10 py-4 rounded-xl transition-all shadow-lg flex items-center pulse-btn transform hover:-translate-y-1 magnetic-btn text-center">
+                    Reserve Your Seat
+                    <span class="material-symbols-outlined ml-3 text-xl">arrow_forward</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Neural Bridge Connector -->
+    <div class="section-connector-v bottom-[-80px]"><div class="connector-glow"></div></div>
+</section>
+
+<!-- Section 11: Live Event Hub -->
+<section id="live-event" class="w-full py-32 relative overflow-hidden bg-gradient-to-br from-[#0f172a] via-[#1e3a8a] to-[#0f172a] text-white reveal">
+    <!-- Animated Mesh Background Blobs -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden">
+        <div class="absolute top-0 -left-4 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+        <div class="absolute top-0 -right-4 w-72 h-72 bg-indigo-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+        <div class="absolute -bottom-8 left-20 w-72 h-72 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
+    </div>
+
+    <div class="max-w-container-max mx-auto px-8 relative z-10 flex flex-col items-center text-center">
+        <!-- Urgency Badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-md mb-8 shadow-lg">
+            <span class="text-orange-400">🔥</span>
+            <span class="text-xs font-bold uppercase tracking-widest"><span id="seats-claimed">87</span>/100 Seats Already Claimed</span>
+        </div>
+
+        <h2 class="font-display text-4xl md:text-6xl font-black mb-6 drop-shadow-lg">
+            Master the Future of <br/> Global Education
+        </h2>
+        <p class="font-body-lg text-blue-100 max-w-2xl mx-auto mb-16 opacity-80">
+            Join our exclusive live masterclass designed to decode the admissions process for elite international institutions.
+        </p>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-4xl mb-16">
+            <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 md:p-8 flex flex-col items-center shadow-2xl">
+                <span class="font-mono text-5xl md:text-6xl font-bold mb-2" id="countdown-days">14</span>
+                <span class="text-[10px] uppercase tracking-[0.2em] text-blue-300">Days</span>
+            </div>
+            <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 md:p-8 flex flex-col items-center shadow-2xl">
+                <span class="font-mono text-5xl md:text-6xl font-bold mb-2" id="countdown-hours">08</span>
+                <span class="text-[10px] uppercase tracking-[0.2em] text-blue-300">Hours</span>
+            </div>
+            <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 md:p-8 flex flex-col items-center shadow-2xl">
+                <span class="font-mono text-5xl md:text-6xl font-bold mb-2" id="countdown-minutes">45</span>
+                <span class="text-[10px] uppercase tracking-[0.2em] text-blue-300">Mins</span>
+            </div>
+            <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 md:p-8 flex flex-col items-center shadow-2xl">
+                <span class="font-mono text-5xl md:text-6xl font-bold mb-2" id="countdown-seconds">22</span>
+                <span class="text-[10px] uppercase tracking-[0.2em] text-blue-300">Secs</span>
+            </div>
+        </div>
+
+        <!-- Logistics Row -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-4xl mb-16">
+            <div class="flex flex-col items-center gap-4 p-8 bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 hover:bg-white/10 transition-all">
+                <div class="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-300">
+                    <span class="material-symbols-outlined">calendar_month</span>
+                </div>
+                <div>
+                    <p class="text-[10px] uppercase tracking-widest text-blue-400 mb-1">Date</p>
+                    <p class="font-bold">Saturday, 16th May</p>
+                </div>
+            </div>
+            <div class="flex flex-col items-center gap-4 p-8 bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 hover:bg-white/10 transition-all">
+                <div class="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-300">
+                    <span class="material-symbols-outlined">schedule</span>
+                </div>
+                <div>
+                    <p class="text-[10px] uppercase tracking-widest text-blue-400 mb-1">Time</p>
+                    <p class="font-bold">7:00 PM IST</p>
+                </div>
+            </div>
+            <div class="flex flex-col items-center gap-4 p-8 bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 hover:bg-white/10 transition-all">
+                <div class="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center text-green-400 relative">
+                    <span class="material-symbols-outlined">videocam</span>
+                    <span class="absolute top-1 right-1 w-2 h-2 bg-green-400 rounded-full animate-ping"></span>
+                </div>
+                <div>
+                    <p class="text-[10px] uppercase tracking-widest text-blue-400 mb-1">Location</p>
+                    <p class="font-bold">Private Zoom Link</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="flex flex-col sm:flex-row gap-6 w-full max-w-xl">
+            <button class="flex-1 bg-green-500 hover:bg-green-400 text-white font-bold py-5 px-8 rounded-2xl shadow-xl transition-all transform hover:-translate-y-1 flex items-center justify-center gap-3">
+                <div class="w-2 h-2 rounded-full bg-white animate-pulse"></div>
+                Register Now
+            </button>
+            <button class="flex-1 bg-white/5 backdrop-blur-md border border-white/20 hover:bg-white/10 text-white font-bold py-5 px-8 rounded-2xl transition-all">
+                Sync to Calendar
+            </button>
+        </div>
+    </div>
+</section>
+
+<footer class="w-full border-t border-slate-200 bg-slate-50 py-12">
+    <div class="max-w-container-max mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div class="text-lg font-bold text-slate-900">Newstrides</div>
+        <div class="flex flex-wrap justify-center gap-6 text-slate-500 text-sm">
+            <a href="#" class="hover:text-blue-600">Privacy Policy</a>
+            <a href="#" class="hover:text-blue-600">Terms of Service</a>
+            <a href="#" class="hover:text-blue-600">Contact Support</a>
+        </div>
+        <div class="text-slate-500 text-sm">© 2024 Newstrides Education. Shaping global futures.</div>
+    </div>
+</footer>
+
+<!-- Toasts -->
+<div class="toast-container fixed bottom-8 left-8 z-50 w-full max-w-sm pointer-events-none">
+    <div class="toast-1 bg-white/95 backdrop-blur-md shadow-xl border rounded-2xl p-4 flex items-center space-x-4 w-full pointer-events-auto">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsBWxSQ_kedosUfnZ5r00mxlXcy7xmjWYpA31AFMSXKeAddO8BEGe0OZN2qWHWQdWNcfXWv21nQ1AMxojH1hoNDuCNG0Vx2URHQ9avrJtbqur1mQWfXgdvtolzUZ-vXhg9ZF1_ZT3S5IovyW0bumchU_1EppqbfooSvjvNsChDob-ODNlFU9pywiNXGHskNJ6fozCQlQZpL-207EQ2WTGL-l5ioIApyDcBb8xvcn1CTX2pv-C8F0ywdD9jZ8jlBcf1OJM-PhGrm8c" class="w-12 h-12 rounded-full"/>
+        <div><p class="font-semibold text-sm">Preeti from Delhi</p><p class="text-xs text-on-surface-variant">Just registered • 2 mins ago</p></div>
+    </div>
+    <div class="toast-2 bg-white/95 backdrop-blur-md shadow-xl border rounded-2xl p-4 flex items-center space-x-4 w-full pointer-events-auto">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVyu1M96OIqYeZ1Ley3TLCG5SkSwbJ4vJHZR0snVoN27a4L52Ey2Y6s01C8be-zdAkN7Z4qR7t_leAB31WKYEloXbLMQkJD4z0_cngKBRxJ0W8UvvX4wrnE-k1eRMfnWbX4p_2k0TA5zaD4mYtuaLoL7AVbtJsf_bcLrbxnrlcuhUEpR9reSOLxU2tS27NKtvrOaTzp0qxsGudLvvnA8EU2R8Dex54njSc91eGncNZT2iu3emj6lpOdAIhtv1byScBE4p8dZ4L7M0" class="w-12 h-12 rounded-full"/>
+        <div><p class="font-semibold text-sm">Ananya from Mumbai</p><p class="text-xs text-on-surface-variant">Secured a scholarship • 15 mins ago</p></div>
+    </div>
+</div>
+
+<!-- Mobile Sticky CTA -->
+<div class="mobile-sticky-cta">
+    <a href="#registration-hub" class="w-full bg-[#16a34a] text-white font-bold py-4 px-6 rounded-2xl shadow-[0_10px_30px_-10px_rgba(22,163,74,0.5)] flex items-center justify-center gap-3 active:scale-95 transition-transform text-center no-underline">
+        <span class="material-symbols-outlined">bolt</span>
+        JOIN THE WEBINAR NOW
+    </a>
+</div>
+
+<script>
+    document.addEventListener('mousemove', (e) => {
+        const cards = document.querySelectorAll('.bento-card, .glass-premium, .step-card');
+        const xAxis = (window.innerWidth / 2 - e.pageX) / 100;
+        const yAxis = (window.innerHeight / 2 - e.pageY) / 100;
+        cards.forEach(card => {
+            if(!card.matches(':hover')) {
+                card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+            }
+        });
+    });
+    document.addEventListener('mouseleave', () => {
+        const cards = document.querySelectorAll('.bento-card, .glass-premium, .step-card');
+        cards.forEach(card => card.style.transform = `rotateY(0deg) rotateX(0deg)`);
+    });
+
+    /* Testimonial Rotation Logic */
+    const testimonials = [
+        {
+            name: "Elena Rodriguez",
+            program: "MSc Data Science, Univ. of Manchester",
+            quote: "Navigating the complex requirements of top-tier universities was daunting until I found Newstrides. Their personalized roadmap was the key to my success.",
+            scholarship: "Full Tuition Fellowship Secured",
+            img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDJieAEHbjTaFUB3fm1119C8FwkzWr8bDcDp-pFw6hU1yvxjY3p6UElZl0ruR_MmwN2_manwNEr1NLAyK_XyuOGHCfMZc7Z5Jn0tzVJGONZz981qhjteblCMcDhaiogluCoMEXjAv_2fFWoAnLoqOPIhf7KryiS-SPzJIGWYMM6W23_bx1hUhRhwBHcfn1Wl6l7xgKklSKCgYsNZ4xvNLm19P1LKrk3oNXEE6oGowJ2RlIhrzvPaUtTtlJBqBg2RoySF01oabfn_LI",
+            type: "Video Testimonial"
+        },
+        {
+            name: "Sarah Jenkins",
+            program: "MSc International Business, HEC Paris",
+            quote: "The strategic guidance I received transformed my application. I secured not just an offer, but a merit scholarship at my dream institution.",
+            scholarship: "$45,000 Scholarship Secured",
+            img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCk-NxJzaavij215nRrLla2SGEC7R1JWLKc7yH79DDQHu5Qc31H1_VWjkZlv7RdAUr9eihzOGybpTBye-vMNaYpt3TxIDc-eAMUFag7q5NiEAl3SZt04HEHYqjpBsgJiTrgz2-YAVPhMHlt3iklaYHIKjv_0rKsce9JtpV1wsqECT6Veh3zZZKTgWHwFyZUde4GjRka4XvsylilrfSVAxm_Wyn1ul3JkLyDnmnzXkzYWdwpL9pbG0jWqki9IzukHItnoGrv-cnslPA",
+            type: "Live Interview"
+        },
+        {
+            name: "David Chen",
+            program: "MBA, INSEAD",
+            quote: "A streamlined, highly professional approach that took the anxiety out of international admissions.",
+            scholarship: "Ivy League Admit 2024",
+            img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDJieAEHbjTaFUB3fm1119C8FwkzWr8bDcDp-pFw6hU1yvxjY3p6UElZl0ruR_MmwN2_manwNEr1NLAyK_XyuOGHCfMZc7Z5Jn0tzVJGONZz981qhjteblCMcDhaiogluCoMEXjAv_2fFWoAnLoqOPIhf7KryiS-SPzJIGWYMM6W23_bx1hUhRhwBHcfn1Wl6l7xgKklSKCgYsNZ4xvNLm19P1LKrk3oNXEE6oGowJ2RlIhrzvPaUtTtlJBqBg2RoySF01oabfn_LI",
+            type: "Alumni Success"
+        }
+    ];
+
+    let currentIndex = 0;
+    const container = document.getElementById('featured-testimonial');
+    const progressBar = document.getElementById('testimonial-progress');
+
+    function resetProgressBar() {
+        if(!progressBar) return;
+        progressBar.style.transition = 'none';
+        progressBar.style.width = '0%';
+        setTimeout(() => {
+            progressBar.style.transition = 'width 4000ms linear';
+            progressBar.style.width = '100%';
+        }, 50);
+    }
+
+    function updateTestimonial() {
+        if(!container) return;
+        container.style.opacity = '0';
+        setTimeout(() => {
+            currentIndex = (currentIndex + 1) % testimonials.length;
+            const data = testimonials[currentIndex];
+            const imgEl = container.querySelector('img');
+            if(imgEl) imgEl.src = data.img;
+            const quoteEl = container.querySelector('.font-h3');
+            if(quoteEl) quoteEl.textContent = `"${data.quote}"`;
+            const nameEl = container.querySelector('.font-h2');
+            if(nameEl) nameEl.textContent = data.name;
+            const programEl = container.querySelector('.font-body-md.font-medium');
+            if(programEl) programEl.textContent = data.program;
+            const badgeEl = container.querySelector('.font-label-md.text-blue-300');
+            if(badgeEl) badgeEl.textContent = data.scholarship;
+            const typeEl = container.querySelector('.font-caption.text-white');
+            if(typeEl) typeEl.textContent = data.type;
+            container.style.opacity = '1';
+            resetProgressBar();
+        }, 500);
+    }
+
+    if(container) {
+        container.style.transition = 'opacity 0.5s ease-in-out';
+        resetProgressBar();
+        setInterval(updateTestimonial, 4500);
+    }
+
+    /* Secondary Rotation */
+    (function() {
+        const miniTestimonials = [
+            {
+                name: "Elena Rodriguez",
+                details: "MSc Data Science, Univ. of Manchester • Full Tuition Fellowship",
+                quote: "Navigating the complex requirements of top-tier universities was daunting until I found Newstrides. Their personalized roadmap was the key to my success.",
+                img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDJieAEHbjTaFUB3fm1119C8FwkzWr8bDcDp-pFw6hU1yvxjY3p6UElZl0ruR_MmwN2_manwNEr1NLAyK_XyuOGHCfMZc7Z5Jn0tzVJGONZz981qhjteblCMcDhaiogluCoMEXjAv_2fFWoAnLoqOPIhf7KryiS-SPzJIGWYMM6W23_bx1hUhRhwBHcfn1Wl6l7xgKklSKCgYsNZ4xvNLm19P1LKrk3oNXEE6oGowJ2RlIhrzvPaUtTtlJBqBg2RoySF01oabfn_LI"
+            },
+            {
+                name: "Sarah Jenkins",
+                details: "MBA, INSEAD • Ivy League Admit 2024",
+                quote: "The strategic guidance I received transformed my application. I secured not just an offer, but a merit scholarship at my dream institution.",
+                img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCk-NxJzaavij215nRrLla2SGEC7R1JWLKc7yH79DDQHu5Qc31H1_VWjkZlv7RdAUr9eihzOGybpTBye-vMNaYpt3TxIDc-eAMUFag7q5NiEAl3SZt04HEHYqjpBsgJiTrgz2-YAVPhMHlt3iklaYHIKjv_0rKsce9JtpV1wsqECT6Veh3zZZKTgWHwFyZUde4GjRka4XvsylilrfSVAxm_Wyn1ul3JkLyDnmnzXkzYWdwpL9pbG0jWqki9IzukHItnoGrv-cnslPA"
+            },
+            {
+                name: "Rahul Sharma",
+                details: "MS Computer Science, Stanford • Research Assistantship",
+                quote: "Their deep understanding of the US admissions landscape is peerless. I wouldn't have made it to Stanford without their mentorship.",
+                img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAsBWxSQ_kedosUfnZ5r00mxlXcy7xmjWYpA31AFMSXKeAddO8BEGe0OZN2qWHWQdWNcfXWv21nQ1AMxojH1hoNDuCNG0Vx2URHQ9avrJtbqur1mQWfXgdvtolzUZ-vXhg9ZF1_ZT3S5IovyW0bumchU_1EppqbfooSvjvNsChDob-ODNlFU9pywiNXGHskNJ6fozCQlQZpL-207EQ2WTGL-l5ioIApyDcBb8xvcn1CTX2pv-C8F0ywdD9jZ8jlBcf1OJM-PhGrm8c"
+            }
+        ];
+
+        let currentIdx = 0;
+        const card = document.getElementById('rotating-testimonial-card');
+        const elementsToFade = [document.getElementById('testimonial-header'), document.getElementById('testimonial-quote'), document.getElementById('testimonial-footer')];
+        const imgEl = document.getElementById('testimonial-img');
+        const quoteEl = document.getElementById('testimonial-quote');
+        const nameEl = document.getElementById('testimonial-name');
+        const detailsEl = document.getElementById('testimonial-details');
+
+        function rotate() {
+            elementsToFade.forEach(el => { if(el) el.classList.add('fade-out'); });
+            setTimeout(() => {
+                currentIdx = (currentIdx + 1) % miniTestimonials.length;
+                const data = miniTestimonials[currentIdx];
+                if(imgEl) { imgEl.src = data.img; imgEl.alt = data.name + " portrait"; }
+                if(quoteEl) quoteEl.textContent = `"${data.quote}"`;
+                if(nameEl) nameEl.textContent = data.name;
+                if(detailsEl) detailsEl.textContent = data.details;
+                elementsToFade.forEach(el => { if(el) el.classList.remove('fade-out'); });
+            }, 500);
+        }
+        setInterval(rotate, 3000);
+    })();
+
+    /* Horizontal Rotation */
+    (function() {
+        const data = [
+            {
+                quote: "\"Their visa and pre-departure support is unmatched. True end-to-end premium service.\"",
+                name: "Priya A.",
+                school: "Columbia University",
+                success: "Accepted: Columbia MS",
+                img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAsBWxSQ_kedosUfnZ5r00mxlXcy7xmjWYpA31AFMSXKeAddO8BEGe0OZN2qWHWQdWNcfXWv21nQ1AMxojH1hoNDuCNG0Vx2URHQ9avrJtbqur1mQWfXgdvtolzUZ-vXhg9ZF1_ZT3S5IovyW0bumchU_1EppqbfooSvjvNsChDob-ODNlFU9pywiNXGHskNJ6fozCQlQZpL-207EQ2WTGL-l5ioIApyDcBb8xvcn1CTX2pv-C8F0ywdD9jZ8jlBcf1OJM-PhGrm8c"
+            },
+            {
+                quote: "\"I never thought a $80k scholarship was possible. Newstrides made my dream a reality.\"",
+                name: "Marcus Thorne",
+                school: "UPenn Wharton",
+                success: "Scholarship: $80k",
+                img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDJieAEHbjTaFUB3fm1119C8FwkzWr8bDcDp-pFw6hU1yvxjY3p6UElZl0ruR_MmwN2_manwNEr1NLAyK_XyuOGHCfMZc7Z5Jn0tzVJGONZz981qhjteblCMcDhaiogluCoMEXjAv_2fFWoAnLoqOPIhf7KryiS-SPzJIGWYMM6W23_bx1hUhRhwBHcfn1Wl6l7xgKklSKCgYsNZ4xvNLm19P1LKrk3oNXEE6oGowJ2RlIhrzvPaUtTtlJBqBg2RoySF01oabfn_LI"
+            },
+            {
+                quote: "\"The technical interview prep for Stanford was world-class. Secured my spot in the CS program.\"",
+                name: "Ananya Iyer",
+                school: "Stanford University",
+                success: "Accepted: Stanford CS",
+                img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCk-NxJzaavij215nRrLla2SGEC7R1JWLKc7yH79DDQHu5Qc31H1_VWjkZlv7RdAUr9eihzOGybpTBye-vMNaYpt3TxIDc-eAMUFag7q5NiEAl3SZt04HEHYqjpBsgJiTrgz2-YAVPhMHlt3iklaYHIKjv_0rKsce9JtpV1wsqECT6Veh3zZZKTgWHwFyZUde4GjRka4XvsylilrfSVAxm_Wyn1ul3JkLyDnmnzXkzYWdwpL9pbG0jWqki9IzukHItnoGrv-cnslPA"
+            }
+        ];
+        let index = 0;
+        const container = document.getElementById('rotating-horizontal-container');
+        const quoteEl = document.getElementById('horizontal-quote');
+        const nameEl = document.getElementById('horizontal-name');
+        const schoolEl = document.getElementById('horizontal-school');
+        const imgEl = document.getElementById('horizontal-img');
+        const successEl = document.getElementById('horizontal-success');
+
+        function rotateHorizontal() {
+            if(!container) return;
+            container.classList.add('opacity-0');
+            setTimeout(() => {
+                index = (index + 1) % data.length;
+                const item = data[index];
+                if(quoteEl) quoteEl.textContent = item.quote;
+                if(nameEl) nameEl.textContent = item.name;
+                if(schoolEl) schoolEl.textContent = item.school;
+                if(imgEl) imgEl.src = item.img;
+                if(successEl) successEl.textContent = item.success;
+                container.classList.remove('opacity-0');
+            }, 500);
+        }
+        setInterval(rotateHorizontal, 3000);
+    })();
+
+    /* Evidence Vault Carousel Logic */
+    (function() {
+        const carousel = document.querySelector('.mobile-carousel');
+        const dotsContainer = document.getElementById('vault-dots');
+        if (!carousel || !dotsContainer) return;
+
+        const dots = Array.from(dotsContainer.children);
+        const cards = Array.from(carousel.children);
+        let currentIndex = 0;
+        let interval;
+
+        const updateDots = (index) => {
+            dots.forEach((dot, i) => {
+                if (i === index) {
+                    dot.classList.remove('bg-slate-200', 'w-2', 'h-2');
+                    dot.classList.add('bg-primary', 'w-2.5', 'h-2.5');
+                } else {
+                    dot.classList.remove('bg-primary', 'w-2.5', 'h-2.5');
+                    dot.classList.add('bg-slate-200', 'w-2', 'h-2');
+                }
+            });
+        };
+
+        const startAutoSlide = () => {
+            interval = setInterval(() => {
+                currentIndex = (currentIndex + 1) % cards.length;
+                const targetCard = cards[currentIndex];
+                carousel.scrollTo({
+                    left: targetCard.offsetLeft - carousel.offsetLeft - 24,
+                    behavior: 'smooth'
+                });
+                updateDots(currentIndex);
+            }, 4000);
+        };
+
+        carousel.addEventListener('touchstart', () => clearInterval(interval));
+        
+        let isScrolling;
+        carousel.addEventListener('scroll', () => {
+            window.clearTimeout(isScrolling);
+            isScrolling = setTimeout(() => {
+                const scrollLeft = carousel.scrollLeft;
+                const cardWidth = cards[0].offsetWidth + 16;
+                const newIndex = Math.round(scrollLeft / cardWidth);
+                if (newIndex !== currentIndex && newIndex < dots.length) {
+                    currentIndex = newIndex;
+                    updateDots(currentIndex);
+                }
+            }, 100);
+        });
+
+        if (window.innerWidth < 768) {
+            startAutoSlide();
+        }
+    })();
+
+    /* FAQ Mesh Gradient Hover Effect */
+    (function() {
+        const grid = document.querySelector('.faq-mesh-bg');
+        const cards = document.querySelectorAll('.faq-card');
+        if (!grid) return;
+        
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = ((rect.left + rect.width / 2) / window.innerWidth) * 100;
+                const y = ((rect.top + rect.height / 2) / window.innerHeight) * 100;
+                grid.style.backgroundImage = `
+                    radial-gradient(circle at ${x}% ${y}%, rgba(26, 115, 232, 0.12) 0px, transparent 50%),
+                    linear-gradient(rgba(26, 115, 232, 0.03) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(26, 115, 232, 0.03) 1px, transparent 1px)
+                `;
+            });
+            card.addEventListener('mouseleave', () => {
+                grid.style.backgroundImage = `
+                    radial-gradient(circle at 50% 50%, rgba(26, 115, 232, 0.05) 0px, transparent 60%),
+                    linear-gradient(rgba(26, 115, 232, 0.03) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(26, 115, 232, 0.03) 1px, transparent 1px)
+                `;
+            });
+        });
+    });
+
+    // Optional: Add slight mouse-move parallax for cards if desired
+    document.addEventListener('mousemove', (e) => {
+        const cards = document.querySelectorAll('.bento-card');
+        const xAxis = (window.innerWidth / 2 - e.pageX) / 100;
+        const yAxis = (window.innerHeight / 2 - e.pageY) / 100;
+        
+        cards.forEach(card => {
+            if(!card.matches(':hover')) {
+                    card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+            }
+        });
+    });
+    
+    // Reset transform on mouse leave
+    document.addEventListener('mouseleave', () => {
+            const cards = document.querySelectorAll('.bento-card');
+            cards.forEach(card => {
+                card.style.transform = `rotateY(0deg) rotateX(0deg)`;
+            });
+    });
+
+    /* Global Countdown & Scarcity Logic */
+    (function() {
+        // Set target date to 14 days from now
+        const targetDate = new Date();
+        targetDate.setDate(targetDate.getDate() + 14);
+        targetDate.setHours(targetDate.getHours() + 8);
+        targetDate.setMinutes(targetDate.getMinutes() + 45);
+
+        const updateTimer = () => {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance < 0) return;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            const dEl = document.getElementById('countdown-days');
+            const hEl = document.getElementById('countdown-hours');
+            const mEl = document.getElementById('countdown-minutes');
+            const sEl = document.getElementById('countdown-seconds');
+
+            if(dEl) dEl.textContent = days.toString().padStart(2, '0');
+            if(hEl) hEl.textContent = hours.toString().padStart(2, '0');
+            if(mEl) mEl.textContent = minutes.toString().padStart(2, '0');
+            if(sEl) sEl.textContent = seconds.toString().padStart(2, '0');
+        };
+
+        setInterval(updateTimer, 1000);
+        updateTimer();
+
+        // Simulated scarcity (seats claimed)
+        let currentSeats = 87;
+        const seatsEl = document.getElementById('seats-claimed');
+        
+        const incrementSeats = () => {
+            if (currentSeats < 98) {
+                currentSeats++;
+                if(seatsEl) {
+                    seatsEl.classList.add('scale-125', 'text-orange-400');
+                    setTimeout(() => {
+                        seatsEl.textContent = currentSeats;
+                        seatsEl.classList.remove('scale-125', 'text-orange-400');
+                    }, 200);
+                }
+                // Randomly increment next seat between 15-45 seconds
+                setTimeout(incrementSeats, Math.random() * 30000 + 15000);
+            }
+        };
+        
+        setTimeout(incrementSeats, 10000);
+    })();
+
+    /* Technical Blueprint Observer Logic */
+    (function() {
+        const reveal = () => {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(el => {
+                const windowHeight = window.innerHeight;
+                const elementTop = el.getBoundingClientRect().top;
+                const elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    el.classList.add('active');
+                }
+            });
+        };
+        window.addEventListener('scroll', reveal);
+        reveal(); // Initial check
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const glitchElements = entry.target.querySelectorAll('.glitch-text');
+                    glitchElements.forEach((el, index) => {
+                        el.style.animationDelay = `${index * 0.1}s`;
+                        el.style.opacity = '1';
+                    });
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.tech-card').forEach(card => {
+            observer.observe(card);
+        });
+        
+        const header = document.querySelector('#blueprint .glitch-text');
+        if(header) observer.observe(header);
+    })();
+</script>
+</body></html>
